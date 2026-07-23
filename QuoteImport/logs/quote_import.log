@@ -1,0 +1,1327 @@
+﻿====================================================================================================
+RUN START: 2026-07-21 09:37:45
+====================================================================================================
+[2026-07-21 09:37:45] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 09:37:45] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 09:37:45] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-21 09:39:50
+====================================================================================================
+[2026-07-21 09:39:50] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 09:39:50] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 09:39:50] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 09:39:50] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 09:39:50] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-21 09:39:50] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 09:39:50] [DEBUG] DRY-RUN: SELECT wird nicht ausgeführt: SELECT GKFREX FROM TVPFTEST.AGKO WHERE GKFIRM = '01' AND GKFREX = '63a6c522' FETCH FIRST 1 ROW ONLY
+[2026-07-21 09:39:50] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-21 09:39:50] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-21 09:39:50] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-21 09:39:50] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-21 09:39:50] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-21 09:39:50] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-21 09:39:50] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-21 09:39:50] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-21 09:39:50] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Argument types do not match
+[2026-07-21 09:39:50] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-21 09:41:28
+====================================================================================================
+[2026-07-21 09:41:28] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 09:41:28] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 09:41:28] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 09:41:28] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 09:41:28] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-21 09:41:28] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 09:41:28] [DEBUG] DRY-RUN: SELECT wird nicht ausgeführt: SELECT GKFREX FROM TVPFTEST.AGKO WHERE GKFIRM = '01' AND GKFREX = '63a6c522' FETCH FIRST 1 ROW ONLY
+[2026-07-21 09:41:28] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-21 09:41:28] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-21 09:41:29] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-21 09:41:29] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-21 09:41:29] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-21 09:41:29] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-21 09:41:29] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-21 09:41:29] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-21 09:41:29] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Argument types do not match
+[2026-07-21 09:41:29] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-21 09:42:40
+====================================================================================================
+[2026-07-21 09:42:40] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 09:42:40] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 09:42:40] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 09:42:40] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 09:42:40] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-21 09:42:40] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 09:42:40] [DEBUG] DRY-RUN: SELECT wird nicht ausgeführt: SELECT GKFREX FROM TVPFTEST.AGKO WHERE GKFIRM = '01' AND GKFREX = '63a6c522' FETCH FIRST 1 ROW ONLY
+[2026-07-21 09:42:40] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-21 09:42:40] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-21 09:42:40] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-21 09:42:40] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-21 09:42:40] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-21 09:42:40] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-21 09:42:40] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-21 09:42:40] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-21 09:42:40] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-21 09:42:40] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-21 09:42:40] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-21 10:09:29
+====================================================================================================
+[2026-07-21 10:09:29] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 10:09:29] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 10:09:29] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 10:09:29] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 10:09:29] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-21 10:09:29] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 10:09:29] [DEBUG] DRY-RUN: SELECT wird nicht ausgeführt: SELECT GKFREX FROM TVPFTEST.AGKO WHERE GKFIRM = '01' AND GKFREX = '63a6c522' FETCH FIRST 1 ROW ONLY
+[2026-07-21 10:09:29] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-21 10:09:29] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-21 10:09:29] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-21 10:09:30] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-21 10:09:30] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-21 10:09:30] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-21 10:09:30] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-21 10:09:30] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-21 10:09:30] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-21 10:09:30] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-21 10:09:30] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-21 16:07:55
+====================================================================================================
+[2026-07-21 16:07:55] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-21 16:07:55] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 16:07:55] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 16:07:55] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 16:07:55] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=True
+[2026-07-21 16:07:55] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 16:07:55] [DEBUG] DRY-RUN: SELECT wird nicht ausgeführt: SELECT GKFREX FROM TVPFTEST.AGKO WHERE GKFIRM = '01' AND GKFREX = '63a6c522' FETCH FIRST 1 ROW ONLY
+[2026-07-21 16:07:55] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-21 16:07:55] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-21 16:07:55] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-21 16:07:55] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-21 16:07:55] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-21 16:07:55] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-21 16:07:55] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-21 16:07:55] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-21 16:07:55] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-21 16:07:55] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-21 16:07:55] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-21 16:10:56
+====================================================================================================
+[2026-07-21 16:10:56] [INFO] Gesamtprozess startet. Execute=False, DryRun=False, SkipSftp=False
+[2026-07-21 16:10:56] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 16:10:57] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 16:10:57] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 16:10:57] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False
+[2026-07-21 16:10:57] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 16:10:57] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/select | Duplikatprüfung 63a6c522 | DryRun=False
+[2026-07-21 16:10:57] [ERROR] API-Fehler bei 'Duplikatprüfung 63a6c522': The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-21 16:10:57] [ERROR] Fehler bei quote_unique_id=63a6c522: SELECT fehlgeschlagen: The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-21 16:10:57] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-21 16:10:57] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-21 16:10:57] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-21 16:12:32
+====================================================================================================
+[2026-07-21 16:12:32] [INFO] Gesamtprozess startet. Execute=False, DryRun=False, SkipSftp=False
+[2026-07-21 16:12:32] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 16:12:32] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 16:12:32] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 16:12:32] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False
+[2026-07-21 16:12:32] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 16:12:32] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/select | Duplikatprüfung 63a6c522 | DryRun=False
+[2026-07-21 16:12:32] [ERROR] API-Fehler bei 'Duplikatprüfung 63a6c522': The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-21 16:12:32] [ERROR] Fehler bei quote_unique_id=63a6c522: SELECT fehlgeschlagen: The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-21 16:12:32] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-21 16:12:32] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-21 16:12:33] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-21 16:21:21
+====================================================================================================
+[2026-07-21 16:21:21] [INFO] Gesamtprozess startet. Execute=False, DryRun=False, SkipSftp=False
+[2026-07-21 16:21:21] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-21 16:21:21] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-21 16:21:21] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-21 16:21:21] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False
+[2026-07-21 16:21:21] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-21 16:21:21] [DEBUG] API POST http://az16emsapp01.dometic.internal:8085/api/services/AGKO/select | Duplikatprüfung 63a6c522 | DryRun=False
+[2026-07-21 16:21:21] [ERROR] API-Fehler bei 'Duplikatprüfung 63a6c522': The remote server returned an error: (404) Not Found. | API-Antwort: 
+
+
+
+{
+    "message": "The route api/services/AGKO/select could not be found.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
+    "line": 45,
+    "trace": [
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php",
+            "line": 162,
+            "function": "handleMatchedRoute",
+            "class": "Illuminate\\Routing\\AbstractRouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 763,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 750,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 739,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 201,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 170,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\proengsoft\\laravel-jsvalidation\\src\\RemoteValidationMiddleware.php",
+            "line": 61,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Proengsoft\\JsValidation\\RemoteValidationMiddleware",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 66,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+            "line": 31,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+            "line": 51,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+            "line": 110,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\app\\Http\\Middleware\\VerifyInstallation.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Vanguard\\Http\\Middleware\\VerifyInstallation",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+            "line": 62,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\HandleCors",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+            "line": 58,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 127,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 176,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 145,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\public\\index.php",
+            "line": 52,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+[2026-07-21 16:21:21] [ERROR] Fehler bei quote_unique_id=63a6c522: SELECT fehlgeschlagen: The remote server returned an error: (404) Not Found. | API-Antwort: 
+
+
+
+{
+    "message": "The route api/services/AGKO/select could not be found.",
+    "exception": "Symfony\\Component\\HttpKernel\\Exception\\NotFoundHttpException",
+    "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\AbstractRouteCollection.php",
+    "line": 45,
+    "trace": [
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RouteCollection.php",
+            "line": 162,
+            "function": "handleMatchedRoute",
+            "class": "Illuminate\\Routing\\AbstractRouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 763,
+            "function": "match",
+            "class": "Illuminate\\Routing\\RouteCollection",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 750,
+            "function": "findRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\Router.php",
+            "line": 739,
+            "function": "dispatchToRoute",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 201,
+            "function": "dispatch",
+            "class": "Illuminate\\Routing\\Router",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 170,
+            "function": "Illuminate\\Foundation\\Http\\{closure}",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\proengsoft\\laravel-jsvalidation\\src\\RemoteValidationMiddleware.php",
+            "line": 61,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Proengsoft\\JsValidation\\RemoteValidationMiddleware",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\barryvdh\\laravel-debugbar\\src\\Middleware\\InjectDebugbar.php",
+            "line": 66,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Barryvdh\\Debugbar\\Middleware\\InjectDebugbar",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull.php",
+            "line": 31,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\ConvertEmptyStringsToNull",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest.php",
+            "line": 21,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\TrimStrings.php",
+            "line": 51,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TransformsRequest",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\TrimStrings",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\ValidatePostSize.php",
+            "line": 27,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\ValidatePostSize",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance.php",
+            "line": 110,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Middleware\\PreventRequestsDuringMaintenance",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\app\\Http\\Middleware\\VerifyInstallation.php",
+            "line": 37,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Vanguard\\Http\\Middleware\\VerifyInstallation",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\HandleCors.php",
+            "line": 62,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\HandleCors",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Http\\Middleware\\TrustProxies.php",
+            "line": 58,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 209,
+            "function": "handle",
+            "class": "Illuminate\\Http\\Middleware\\TrustProxies",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Pipeline\\Pipeline.php",
+            "line": 127,
+            "function": "Illuminate\\Pipeline\\{closure}",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 176,
+            "function": "then",
+            "class": "Illuminate\\Pipeline\\Pipeline",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php",
+            "line": 145,
+            "function": "sendRequestThroughRouter",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        },
+        {
+            "file": "D:\\WWW\\DILA\\edc\\public\\index.php",
+            "line": 52,
+            "function": "handle",
+            "class": "Illuminate\\Foundation\\Http\\Kernel",
+            "type": "->"
+        }
+    ]
+}
+[2026-07-21 16:21:21] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-21 16:21:21] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-21 16:21:21] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 08:28:40
+====================================================================================================
+[2026-07-22 08:28:40] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-07-22 08:28:40] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:28:40] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:28:40] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:28:40] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 08:28:40] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-22 08:28:41] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 08:28:41] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522
+[2026-07-22 08:28:41] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 08:28:41] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 08:28:41] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 08:28:41] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 08:28:41] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-22 08:28:41] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 08:28:41] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-22 08:28:41] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 08:28:41] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 08:28:41] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-22 08:28:41] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 08:49:24
+====================================================================================================
+[2026-07-22 08:49:24] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 08:49:24] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:49:24] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:49:24] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:49:24] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 08:49:24] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-22 08:49:24] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 08:49:24] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522
+[2026-07-22 08:49:24] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 08:49:25] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 08:49:25] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 08:49:25] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 08:49:25] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-22 08:49:25] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 08:49:25] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-22 08:49:25] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 08:49:25] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 08:49:25] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-22 08:49:25] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+[2026-07-22 08:53:15] [INFO] API Bearer Token wurde interaktiv für diesen Lauf übernommen.
+====================================================================================================
+RUN START: 2026-07-22 08:53:15
+====================================================================================================
+[2026-07-22 08:53:15] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=True
+[2026-07-22 08:53:16] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:53:16] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:53:16] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:53:16] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 08:53:16] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-22 08:53:16] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 08:53:16] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522
+[2026-07-22 08:53:16] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 08:53:16] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 08:53:16] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 08:53:16] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 08:53:16] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-22 08:53:16] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 08:53:16] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-22 08:53:16] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 08:53:16] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 08:53:16] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-22 08:53:16] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 08:56:27
+====================================================================================================
+[2026-07-22 08:56:27] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 08:56:27] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:56:27] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:56:27] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:56:27] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 08:56:27] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 08:57:01
+====================================================================================================
+[2026-07-22 08:57:01] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 08:57:01] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:57:01] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:57:01] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:57:01] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 08:57:01] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+[2026-07-22 08:57:07] [INFO] API Bearer Token wurde interaktiv für diesen Lauf übernommen.
+====================================================================================================
+RUN START: 2026-07-22 08:57:07
+====================================================================================================
+[2026-07-22 08:57:07] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=True
+[2026-07-22 08:57:07] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:57:07] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:57:07] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:57:07] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 08:57:07] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-22 08:57:07] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 08:57:07] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522
+[2026-07-22 08:57:07] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 08:57:07] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 08:57:07] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 08:57:07] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 08:57:07] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-22 08:57:07] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 08:57:07] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-22 08:57:07] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 08:57:07] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 08:57:07] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-22 08:57:07] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 08:57:13
+====================================================================================================
+[2026-07-22 08:57:13] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 08:57:13] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 08:57:13] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 08:57:13] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 08:57:13] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 08:57:13] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:00:38
+====================================================================================================
+[2026-07-22 09:00:38] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:00:38] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:00:38] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:00:38] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:00:38] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 09:00:38] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:03:59
+====================================================================================================
+[2026-07-22 09:03:59] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:03:59] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:03:59] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:03:59] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:03:59] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 09:04:00] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:04:32
+====================================================================================================
+[2026-07-22 09:04:32] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:04:32] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:04:32] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:04:32] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:04:32] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 09:04:32] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:07:15
+====================================================================================================
+[2026-07-22 09:07:15] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:07:15] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:07:15] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:07:15] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:07:15] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 09:07:15] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=False
+[2026-07-22 09:07:15] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 09:07:15] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522 | AGKO-Duplikatprüfung 63a6c522 | DryRun=False
+[2026-07-22 09:07:15] [ERROR] API-Fehler bei 'AGKO-Duplikatprüfung 63a6c522': The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-22 09:07:15] [ERROR] Fehler bei quote_unique_id=63a6c522: GET-SELECT fehlgeschlagen: The remote server returned an error: (401) Unauthorized. | API-Antwort: 
+
+
+
+Unauthorized.
+[2026-07-22 09:07:15] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 09:07:15] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 09:07:15] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:10:16
+====================================================================================================
+[2026-07-22 09:10:16] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:10:16] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:10:16] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:10:16] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:10:16] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Input string was not in a correct format.
+[2026-07-22 09:10:16] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:18:56
+====================================================================================================
+[2026-07-22 09:18:56] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:18:56] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:18:56] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:18:56] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:18:56] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 09:18:56] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=True
+[2026-07-22 09:18:56] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 09:18:56] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522
+[2026-07-22 09:18:56] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 09:18:56] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 09:18:56] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 09:18:56] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 09:18:56] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=True
+[2026-07-22 09:18:56] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 09:18:56] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=True
+[2026-07-22 09:18:57] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 09:18:57] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 09:18:57] [INFO] DRY-RUN erfolgreich. Datei bleibt im Eingangsverzeichnis: sample-quotes.csv
+[2026-07-22 09:18:57] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 09:20:26
+====================================================================================================
+[2026-07-22 09:20:26] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:20:26] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:20:26] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:20:27] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:20:27] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 09:20:27] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=False
+[2026-07-22 09:20:27] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 09:20:27] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKFIRM=01&GKFREX=63a6c522 | AGKO-Duplikatprüfung 63a6c522 | DryRun=False
+[2026-07-22 09:20:27] [ERROR] API-Fehler bei 'AGKO-Duplikatprüfung 63a6c522': The remote server returned an error: (500) Internal Server Error. | API-Antwort: 
+
+
+
+{"error":"SQL execution failed","details":"SQLSTATE[07002]: COUNT field incorrect: 30007 [IBM][System i Access ODBC-Treiber]Falsche Parameteranzahl. (SQLExecute[30007] at ext\\pdo_odbc\\odbc_stmt.c:263) (Connection: ibmi_cloud, SQL: select * from TVPFTEST.AGKO where GKAGJJ = (:GKAGJJ) and GKAGNR = (:GKAGNR))"}
+[2026-07-22 09:20:27] [ERROR] Fehler bei quote_unique_id=63a6c522: GET-SELECT fehlgeschlagen: The remote server returned an error: (500) Internal Server Error. | API-Antwort: 
+
+
+
+{"error":"SQL execution failed","details":"SQLSTATE[07002]: COUNT field incorrect: 30007 [IBM][System i Access ODBC-Treiber]Falsche Parameteranzahl. (SQLExecute[30007] at ext\\pdo_odbc\\odbc_stmt.c:263) (Connection: ibmi_cloud, SQL: select * from TVPFTEST.AGKO where GKAGJJ = (:GKAGJJ) and GKAGNR = (:GKAGNR))"}
+[2026-07-22 09:20:27] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 09:20:27] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 09:20:28] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:36:45
+====================================================================================================
+[2026-07-22 09:36:45] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:36:45] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:36:45] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:36:45] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:36:45] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 09:36:45] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=False
+[2026-07-22 09:36:45] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 09:36:45] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 09:36:45] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 09:36:45] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 09:36:45] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 09:36:47] [ERROR] Fehler bei quote_unique_id=63a6c522: Angebotsnummer 2026/103015 existiert bereits in AGKO. Vorhandene GKFREX='', Kunde=''. Die Nummer darf nicht erneut verwendet werden.
+[2026-07-22 09:36:47] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 09:36:47] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 09:36:47] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 09:48:04
+====================================================================================================
+[2026-07-22 09:48:04] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 09:48:04] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 09:48:04] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 09:48:04] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 09:48:04] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 09:48:04] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=False
+[2026-07-22 09:48:04] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 09:48:04] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 09:48:04] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 09:48:04] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 09:48:04] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 09:48:05] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 09:48:05] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 09:48:05] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 09:48:05] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 09:48:05] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=False
+[2026-07-22 09:48:06] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 09:48:06] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=False
+[2026-07-22 09:48:06] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 09:48:06] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 09:48:06] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_094806.csv
+[2026-07-22 09:48:06] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 12:21:34
+====================================================================================================
+[2026-07-22 12:21:34] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:21:34] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:21:34] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 12:21:34] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 12:21:34] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 12:21:34] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=True | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 12:21:34] [WARN] ACHTUNG: Execute=True und Api.TestMode=True. Der Request enthält "testMode":true. Je nach API-Implementierung kann dies eine reine Validierung oder Simulation ohne COMMIT bedeuten. Die AGKO-Nachkontrolle entscheidet, ob wirklich gespeichert wurde.
+[2026-07-22 12:21:34] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 12:21:34] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 12:21:34] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 12:21:34] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 12:21:34] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:21:35] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[]}
+[2026-07-22 12:21:35] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 12:21:35] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 12:21:35] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 12:21:35] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 12:21:35] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=False
+[2026-07-22 12:21:35] [DEBUG] API-Antwort bei 'AGKO 2026/103015 / 63a6c522': {"STATUS":"OK","MESSAGE":"Test mode active, nothing inserted.","SQL":"INSERT INTO TVPFTEST.AGKO (GKFIRM, GKAGAR, GKAGJJ, GKAGNN, GKAGNR, GKKDNR, GKSABE, GKWKNR, GKABTL, GKABAR, GKWACD, GKAGST, GKGADA, GKGBDA, GKAGDA, GKARF1, GKARF2, GKVSBD, GKLIBD, GKZABD, GKSPCD, GKWVDA, GKKOND, GKTLKZ, GKFREX) VALUES (\u002701\u0027, 150, 2026, 103015, 103015, 255521, \u0027TIK\u0027, \u0027001\u0027, \u0027VK\u0027, \u0027D\u0027, \u0027EUR\u0027, \u002700\u0027, 20260706, 20260710, 20260708, \u0027WVO-gyEmRyn7\u0027, \u0027\u0027, 220, \u0027060\u0027, \u0027012\u0027, \u0027D\u0027, 0, \u0027J\u0027, \u0027N\u0027, \u002763a6c522\u0027)","Data":{"GKFIRM":"01","GKAGAR":"150","GKAGJJ":2026,"GKAGNN":103015,"GKAGNR":"103015","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":20260706,"GKGBDA":20260710,"GKAGDA":20260708,"GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKSPCD":"D","GKWVDA":0,"GKKOND":"J","GKTLKZ":"N","GKFREX":"63a6c522"}}
+[2026-07-22 12:21:36] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:21:36] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[]}
+[2026-07-22 12:21:36] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 12:21:36] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 12:21:36] [DEBUG] AGKO-Nachkontrolle: 2026/103015 noch nicht sichtbar. Neuer Versuch 2/3.
+[2026-07-22 12:21:37] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:21:37] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[]}
+[2026-07-22 12:21:37] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 12:21:37] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 12:21:37] [DEBUG] AGKO-Nachkontrolle: 2026/103015 noch nicht sichtbar. Neuer Versuch 3/3.
+[2026-07-22 12:21:38] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:21:38] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[]}
+[2026-07-22 12:21:38] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 12:21:38] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 12:21:38] [ERROR] Fehler bei quote_unique_id=63a6c522: AGKO-POST wurde von der API ohne HTTP-Fehler beantwortet, aber 2026/103015 ist nach 3 Nachkontrollversuch(en) nicht in AGKO vorhanden. Mögliche Ursachen: Api.TestMode=True simuliert nur, AddUrl zeigt auf ein anderes System, die API hat nicht committed oder die Antwort meldet nur Validierungserfolg.
+[2026-07-22 12:21:38] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 12:21:38] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 12:21:38] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 12:28:21
+====================================================================================================
+[2026-07-22 12:28:21] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:28:21] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:28:21] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 12:28:21] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 12:28:21] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 12:28:21] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 12:28:21] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 12:28:21] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 12:28:21] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 12:28:21] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 12:28:21] [ERROR] Fehler bei quote_unique_id=63a6c522: NumberRange.Mode=Fixed ist außerhalb von TestMode/DryRun nicht zulässig.
+[2026-07-22 12:28:21] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 12:28:21] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 12:28:21] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 12:32:07
+====================================================================================================
+[2026-07-22 12:32:07] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:32:07] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:32:07] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 12:32:07] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 12:32:07] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 12:32:07] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 12:32:07] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 12:32:07] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 12:32:07] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 12:32:07] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 12:32:07] [ERROR] Fehler bei quote_unique_id=63a6c522: NumberRange.Mode=Fixed ist außerhalb von TestMode/DryRun nicht zulässig.
+[2026-07-22 12:32:07] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 12:32:07] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 12:32:07] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 12:34:22
+====================================================================================================
+[2026-07-22 12:34:22] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:34:22] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:34:22] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 12:34:22] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 12:34:22] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 12:34:22] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 12:34:22] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 12:34:22] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 12:34:22] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 12:34:22] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 12:34:22] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 12:34:22] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 12:34:22] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 12:34:22] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:34:23] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[]}
+[2026-07-22 12:34:23] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 0
+[2026-07-22 12:34:23] [DEBUG] AGKO-Nummernprüfung: 2026/103015 ist nicht vorhanden.
+[2026-07-22 12:34:23] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 12:34:23] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103015.json
+[2026-07-22 12:34:23] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103015 / 63a6c522 | DryRun=False
+[2026-07-22 12:34:24] [DEBUG] API-Antwort bei 'AGKO 2026/103015 / 63a6c522': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 12:34:24] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:34:25] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"","GKJDAT":"0","GKJZEI":"0","GKUSER":"","GKPROG":"","GKBIBL":"","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103015","GKAGNR":"103015","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c522"}]}
+[2026-07-22 12:34:25] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 1
+[2026-07-22 12:34:25] [WARN] AGKO-Nummernprüfung: 2026/103015 existiert bereits. Kunde='255521'.
+[2026-07-22 12:34:25] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103015 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-07-22 12:34:25] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103015_10.json
+[2026-07-22 12:34:25] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103015 Pos=10 / 63a6c522 | DryRun=False
+[2026-07-22 12:34:25] [DEBUG] API-Antwort bei 'AGPO 2026/103015 Pos=10 / 63a6c522': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 12:34:25] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103015, Positionen=1
+[2026-07-22 12:34:25] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 12:34:25] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_123425.csv
+[2026-07-22 12:34:25] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 12:35:26
+====================================================================================================
+[2026-07-22 12:35:26] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:35:26] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:35:26] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 12:35:47
+====================================================================================================
+[2026-07-22 12:35:47] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:35:47] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:35:47] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 12:35:47] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 12:35:47] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 12:35:47] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 12:35:47] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 12:35:47] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 12:35:48] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 12:35:48] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 12:35:48] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 12:35:48] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 12:35:48] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 12:35:48] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103015 | AGKO-Nummernprüfung 2026/103015 | DryRun=False
+[2026-07-22 12:35:49] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103015': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"","GKJDAT":"0","GKJZEI":"0","GKUSER":"","GKPROG":"","GKBIBL":"","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103015","GKAGNR":"103015","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c522"}]}
+[2026-07-22 12:35:49] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103015': echte Datensätze in data[] = 1
+[2026-07-22 12:35:49] [WARN] AGKO-Nummernprüfung: 2026/103015 existiert bereits. Kunde='255521'.
+[2026-07-22 12:35:49] [WARN] Angebot 63a6c522 ist bereits als 2026/103015 vorhanden und wird übersprungen.
+[2026-07-22 12:35:49] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=1, Fehler=0
+[2026-07-22 12:35:49] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_123549.csv
+[2026-07-22 12:35:49] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 12:36:55
+====================================================================================================
+[2026-07-22 12:36:55] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 12:36:55] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 12:36:55] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 13:31:27
+====================================================================================================
+[2026-07-22 13:31:27] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:31:27] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:31:28] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 13:32:49
+====================================================================================================
+[2026-07-22 13:32:49] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:32:49] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:32:49] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 13:32:49] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 13:32:49] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 13:32:49] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 13:32:49] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 13:32:49] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 13:32:49] [INFO] Verarbeite quote_unique_id=63a6c523, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 13:32:49] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 13:32:49] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 13:32:49] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 13:32:49] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 13:32:49] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:32:50] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[]}
+[2026-07-22 13:32:50] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 0
+[2026-07-22 13:32:50] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-07-22 13:32:50] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 13:32:50] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-07-22 13:32:50] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-07-22 13:32:50] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-07-22 13:32:51] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-07-22 13:32:51] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c523_2026_103016.json
+[2026-07-22 13:32:51] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c523 | DryRun=False
+[2026-07-22 13:32:51] [DEBUG] API-Antwort bei 'AGKO 2026/103016 / 63a6c523': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:32:51] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:32:52] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"","GKJDAT":"0","GKJZEI":"0","GKUSER":"","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c523"}]}
+[2026-07-22 13:32:52] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 13:32:52] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 13:32:52] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103016 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-07-22 13:32:52] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c523_2026_103016_10.json
+[2026-07-22 13:32:52] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c523 | DryRun=False
+[2026-07-22 13:32:52] [DEBUG] API-Antwort bei 'AGPO 2026/103016 Pos=10 / 63a6c523': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:32:52] [INFO] Angebot erfolgreich verarbeitet: 63a6c523 -> 2026/103016, Positionen=1
+[2026-07-22 13:32:52] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 13:32:52] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_133252.csv
+[2026-07-22 13:32:52] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 13:49:11
+====================================================================================================
+[2026-07-22 13:49:11] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:49:11] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:49:11] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 13:49:59
+====================================================================================================
+[2026-07-22 13:49:59] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:49:59] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:49:59] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 13:49:59] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 13:49:59] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 13:49:59] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 13:49:59] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 13:49:59] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 13:49:59] [INFO] Verarbeite quote_unique_id=63a6c525, quote_number=WVO-gyEmRyn8, Positionen=1
+[2026-07-22 13:49:59] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 13:49:59] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 13:49:59] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 13:49:59] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 13:49:59] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:50:00] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"","GKJDAT":"0","GKJZEI":"0","GKUSER":"","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c523"}]}
+[2026-07-22 13:50:00] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 13:50:00] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 13:50:00] [ERROR] Fehler bei quote_unique_id=63a6c525: Angebotsnummer 2026/103016 existiert bereits in AGKO. Vorhandene GKFREX='63a6c523', Kunde='255521'. Die Nummer darf nicht erneut verwendet werden.
+[2026-07-22 13:50:00] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 13:50:00] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 13:50:00] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 13:52:22
+====================================================================================================
+[2026-07-22 13:52:22] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:52:22] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:52:23] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 13:52:23] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 13:52:23] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 13:52:23] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 13:52:23] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 13:52:23] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 13:52:23] [INFO] Verarbeite quote_unique_id=63a6c555, quote_number=WVO-gyEmRyn8, Positionen=1
+[2026-07-22 13:52:23] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 13:52:23] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 13:52:23] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 13:52:23] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 13:52:23] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:52:24] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"","GKJDAT":"0","GKJZEI":"0","GKUSER":"","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c523"}]}
+[2026-07-22 13:52:24] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 13:52:24] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 13:52:24] [ERROR] Fehler bei quote_unique_id=63a6c555: Angebotsnummer 2026/103016 existiert bereits in AGKO. Vorhandene GKFREX='63a6c523', Kunde='255521'. Die Nummer darf nicht erneut verwendet werden.
+[2026-07-22 13:52:24] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Fehler=1
+[2026-07-22 13:52:24] [ERROR] Datei fehlgeschlagen und bleibt für Analyse/Wiederholung liegen: D:\Quotation\QuoteImport\incoming\sample-quotes.csv. Ursache: Mindestens eine Angebotsgruppe ist fehlgeschlagen: 1
+[2026-07-22 13:52:24] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-07-22 13:55:41
+====================================================================================================
+[2026-07-22 13:55:41] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:55:41] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:55:41] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 13:55:41] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 13:55:42] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 13:55:42] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 13:55:42] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 13:55:42] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 13:55:42] [INFO] Verarbeite quote_unique_id=63a6c555, quote_number=WVO-gyEmRyn8, Positionen=1
+[2026-07-22 13:55:42] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 13:55:42] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 13:55:42] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 13:55:42] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 13:55:42] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:55:43] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[]}
+[2026-07-22 13:55:43] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 0
+[2026-07-22 13:55:43] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-07-22 13:55:43] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260722', Time='135543', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-07-22 13:55:43] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 13:55:43] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-07-22 13:55:43] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260722'
+[2026-07-22 13:55:43] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='135543'
+[2026-07-22 13:55:43] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-07-22 13:55:43] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-07-22 13:55:43] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260722'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='135543'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-07-22 13:55:43] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-07-22 13:55:43] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c555_2026_103016.json
+[2026-07-22 13:55:43] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c555 | DryRun=False
+[2026-07-22 13:55:44] [DEBUG] API-Antwort bei 'AGKO 2026/103016 / 63a6c555': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:55:44] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:55:45] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"135543","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn8","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c555"}]}
+[2026-07-22 13:55:45] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 13:55:45] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 13:55:45] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103016 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-07-22 13:55:45] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c555_2026_103016_10.json
+[2026-07-22 13:55:45] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c555 | DryRun=False
+[2026-07-22 13:55:45] [DEBUG] API-Antwort bei 'AGPO 2026/103016 Pos=10 / 63a6c555': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:55:45] [INFO] Angebot erfolgreich verarbeitet: 63a6c555 -> 2026/103016, Positionen=1
+[2026-07-22 13:55:45] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 13:55:45] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_135545.csv
+[2026-07-22 13:55:45] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 13:57:44
+====================================================================================================
+[2026-07-22 13:57:44] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:57:44] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:57:44] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 13:58:26
+====================================================================================================
+[2026-07-22 13:58:26] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 13:58:26] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 13:58:26] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 13:58:26] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 13:58:26] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 13:58:26] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 13:58:26] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 13:58:26] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 13:58:26] [INFO] Verarbeite quote_unique_id=63a6c622, quote_number=WVO-gyEmRy10, Positionen=1
+[2026-07-22 13:58:26] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 13:58:26] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 13:58:26] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 13:58:26] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 13:58:26] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 13:58:27] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"135543","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn8","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c555"}]}
+[2026-07-22 13:58:27] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 13:58:27] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 13:58:27] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c555', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-07-22 13:58:27] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-07-22 13:58:28] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[]}
+[2026-07-22 13:58:28] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 0
+[2026-07-22 13:58:28] [DEBUG] AGKO-Nummernprüfung: 2026/103017 ist nicht vorhanden.
+[2026-07-22 13:58:28] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103017. Prüfversuche=2.
+[2026-07-22 13:58:28] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260722', Time='135828', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-07-22 13:58:28] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-07-22 13:58:28] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-07-22 13:58:28] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260722'
+[2026-07-22 13:58:28] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='135828'
+[2026-07-22 13:58:28] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-07-22 13:58:28] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-07-22 13:58:28] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-07-22 13:58:28] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-07-22 13:58:28] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260722'
+[2026-07-22 13:58:28] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='135828'
+[2026-07-22 13:58:28] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-07-22 13:58:28] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-07-22 13:58:29] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-07-22 13:58:29] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c622_2026_103017.json
+[2026-07-22 13:58:29] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103017 / 63a6c622 | DryRun=False
+[2026-07-22 13:58:30] [DEBUG] API-Antwort bei 'AGKO 2026/103017 / 63a6c622': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:58:30] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-07-22 13:58:30] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"135828","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRy10","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c622"}]}
+[2026-07-22 13:58:30] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-07-22 13:58:30] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-07-22 13:58:30] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103017 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-07-22 13:58:30] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c622_2026_103017_10.json
+[2026-07-22 13:58:30] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103017 Pos=10 / 63a6c622 | DryRun=False
+[2026-07-22 13:58:31] [DEBUG] API-Antwort bei 'AGPO 2026/103017 Pos=10 / 63a6c622': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 13:58:31] [INFO] Angebot erfolgreich verarbeitet: 63a6c622 -> 2026/103017, Positionen=1
+[2026-07-22 13:58:31] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 13:58:31] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_135831.csv
+[2026-07-22 13:58:31] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-22 14:02:41
+====================================================================================================
+[2026-07-22 14:02:41] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 14:02:41] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 14:02:41] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-22 15:20:00
+====================================================================================================
+[2026-07-22 15:20:00] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False, PromptForBearerToken=False
+[2026-07-22 15:20:00] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-22 15:20:00] [INFO] ----------------------------------------------------------------------------------------------------
+[2026-07-22 15:20:00] [INFO] Datei startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv
+[2026-07-22 15:20:00] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-07-22 15:20:00] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-07-22 15:20:00] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-07-22 15:20:00] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-07-22 15:20:00] [INFO] Verarbeite quote_unique_id=63a6c688, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-07-22 15:20:00] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-07-22 15:20:00] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-07-22 15:20:00] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-07-22 15:20:00] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-07-22 15:20:00] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-07-22 15:20:01] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"135543","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn8","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c555"}]}
+[2026-07-22 15:20:01] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-07-22 15:20:01] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-07-22 15:20:01] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c555', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-07-22 15:20:01] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-07-22 15:20:01] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"XCAL1106","GKJDAT":"20260722","GKJZEI":"145028","GKUSER":"LANGLITZT","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRy10","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c622"}]}
+[2026-07-22 15:20:01] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-07-22 15:20:01] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-07-22 15:20:01] [WARN] Test-Angebotsnummer 2026/103017 ist belegt durch GKFREX='63a6c622', Kunde='255521'. Suche wird mit 2026/103018 fortgesetzt.
+[2026-07-22 15:20:01] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-07-22 15:20:02] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[]}
+[2026-07-22 15:20:02] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 0
+[2026-07-22 15:20:02] [DEBUG] AGKO-Nummernprüfung: 2026/103018 ist nicht vorhanden.
+[2026-07-22 15:20:02] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103018. Prüfversuche=3.
+[2026-07-22 15:20:02] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260722', Time='152002', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-07-22 15:20:02] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-07-22 15:20:02] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260722'
+[2026-07-22 15:20:02] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='152002'
+[2026-07-22 15:20:02] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-07-22 15:20:02] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-07-22 15:20:02] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260722'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='152002'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-07-22 15:20:02] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-07-22 15:20:02] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c688_2026_103018.json
+[2026-07-22 15:20:03] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103018 / 63a6c688 | DryRun=False
+[2026-07-22 15:20:03] [DEBUG] API-Antwort bei 'AGKO 2026/103018 / 63a6c688': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 15:20:03] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-07-22 15:20:04] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"152002","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103018","GKAGNR":"103018","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKFRIN":"","GKFREX":"63a6c688"}]}
+[2026-07-22 15:20:04] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 1
+[2026-07-22 15:20:04] [WARN] AGKO-Nummernprüfung: 2026/103018 existiert bereits. Kunde='255521'.
+[2026-07-22 15:20:04] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103018 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-07-22 15:20:04] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c688_2026_103018_10.json
+[2026-07-22 15:20:04] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103018 Pos=10 / 63a6c688 | DryRun=False
+[2026-07-22 15:20:04] [DEBUG] API-Antwort bei 'AGPO 2026/103018 Pos=10 / 63a6c688': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-07-22 15:20:04] [INFO] Angebot erfolgreich verarbeitet: 63a6c688 -> 2026/103018, Positionen=1
+[2026-07-22 15:20:04] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+[2026-07-22 15:20:04] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_152004.csv
+[2026-07-22 15:20:05] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0

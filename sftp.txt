@@ -1,0 +1,17 @@
+// Set up session options
+SessionOptions sessionOptions = new SessionOptions
+{
+    Protocol = Protocol.Sftp,
+    HostName = "az16sftp01.blob.core.windows.net",
+    UserName = "az16sftp01.worklist.worklist",
+    Password = "XT46SdF9aV5xExwkXxpNthlTiuF/V2Rf",
+    SshHostKeyFingerprint = "ecdsa-sha2-nistp256 256 73:48:fc:a2:80:e1:f1:b5:ee:8b:67:3d:9c:c8:66:27",
+};
+
+using (Session session = new Session())
+{
+    // Connect
+    session.Open(sessionOptions);
+
+    // Your code
+}

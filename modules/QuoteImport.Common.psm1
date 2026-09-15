@@ -59,6 +59,95 @@ function Get-ConfigValue {
     return $property.Value
 }
 
+function Import-QuoteImportDataFile {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, Position=0)] [string] $Path,
+        [Parameter(Mandatory, Position=1)] [string] $Description
+    )
+    if (-not (Test-Path -LiteralPath $Path -PathType Leaf)) {
+        throw "$Description nicht gefunden: $Path"
+    }
+    $data = Import-PowerShellDataFile -LiteralPath $Path
+    if (-not ($data -is [System.Collections.IDictionary])) {
+        throw "$Description liefert keine Hashtable: $Path"
+    }
+    return $data
+}
+
+function Resolve-QuoteFileName {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] [string] $Template,
+        [Parameter(Mandatory)] [hashtable] $Tokens
+    )
+    if ([string]::IsNullOrWhiteSpace($Template)) { throw 'Dateinamensvorlage ist leer.' }
+    $result = $Template
+    foreach ($key in $Tokens.Keys) { $result = $result.Replace("{$key}", [string]$Tokens[$key]) }
+    $unresolved = [regex]::Matches($result, '\{[A-Za-z][A-Za-z0-9]*\}')
+    if ($unresolved.Count -gt 0) { throw "Unbekannte Platzhalter in Dateinamensvorlage '$Template': $($unresolved.Value -join ', ')" }
+    if ([System.IO.Path]::GetFileName($result) -ne $result) { throw "Dateinamensvorlage erzeugt einen Pfad statt eines Dateinamens: $result" }
+    return $result
+}
+
+function ConvertTo-CanonicalQuoteRows {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory)] [object[]] $Rows,
+        [Parameter(Mandatory)] [hashtable] $ColumnMapping
+    )
+    if ($Rows.Count -eq 0) { return @() }
+    $available = @($Rows[0].PSObject.Properties.Name)
+    $missingSources = @($ColumnMapping.Keys | ForEach-Object { [string]$ColumnMapping[$_] } | Where-Object { $_ -notin $available } | Sort-Object -Unique)
+    if ($missingSources.Count -gt 0) { throw "Gemappte Quellspalten fehlen in der Eingabedatei: $($missingSources -join ', ')" }
+    $result = foreach ($row in $Rows) {
+        $canonical = [ordered]@{}
+        foreach ($target in $ColumnMapping.Keys) {
+            $source = [string]$ColumnMapping[$target]
+            $canonical[[string]$target] = $row.PSObject.Properties[$source].Value
+        }
+        [pscustomobject]$canonical
+    }
+    return @($result)
+}
+
+function Test-QuoteImportConfiguration {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory, Position=0)] [hashtable] $Settings,
+        [Parameter(Mandatory, Position=1)] [hashtable] $Mapping,
+        [Parameter(Mandatory, Position=2)] [string] $ProjectRoot
+    )
+    foreach ($section in @('Dependencies','Paths','Api','Defaults','NumberRange','MasterData','Sftp')) {
+        if (-not $Settings.ContainsKey($section)) { throw "Parameterdatei: Abschnitt '$section' fehlt." }
+    }
+    foreach ($section in @('Input','Output')) {
+        if (-not $Mapping.ContainsKey($section)) { throw "Mappingdatei: Abschnitt '$section' fehlt." }
+    }
+    foreach ($name in @('IncomingDirectory','ArchiveDirectory','ResultDirectory','LogPath','RequestDumpDirectory')) {
+        if ([string]::IsNullOrWhiteSpace([string]$Settings.Paths[$name])) { throw "Parameter Paths.$name fehlt oder ist leer." }
+    }
+    foreach ($name in @('FileMask','Delimiter','Encoding','Columns')) {
+        if (-not $Mapping.Input.ContainsKey($name)) { throw "Mapping Input.$name fehlt." }
+    }
+    $requiredCanonical = @('quote_unique_id','quote_number','customer_number','article_number','quantity','quote_date','delivery_company_name1','delivery_company_name2','delivery_company_name3','delivery_address','delivery_address_misc','delivery_zip_code','delivery_city','delivery_country','delivery_email','delivery_phone','field_sales_id','reference_2','valid_from','valid_to','discount','gross_unit_price','net_unit_price')
+    $missingCanonical = @($requiredCanonical | Where-Object { -not $Mapping.Input.Columns.ContainsKey($_) })
+    if ($missingCanonical.Count -gt 0) { throw "Mapping für interne Pflichtfelder fehlt: $($missingCanonical -join ', ')" }
+    foreach ($name in @('HeaderTable','PositionTable','ArchiveFileName','ResultFileName','HeaderDumpFileName','PositionDumpFileName')) {
+        if ([string]::IsNullOrWhiteSpace([string]$Mapping.Output[$name])) { throw "Mapping Output.$name fehlt oder ist leer." }
+    }
+    foreach ($module in @($Settings.Dependencies.RequiredModules)) {
+        if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot "modules\$module") -PathType Leaf)) { throw "Abhängiges Modul fehlt: $module" }
+    }
+    $minimumVersion = [version]$Settings.Dependencies.MinimumPowerShellVersion
+    if ($PSVersionTable.PSVersion -lt $minimumVersion) { throw "PowerShell $minimumVersion oder neuer ist erforderlich." }
+    if ([bool]$Settings.Sftp.Enabled) {
+        $dll = [string]$Settings.Dependencies.WinScpNetDllPath
+        if (-not (Test-Path -LiteralPath $dll -PathType Leaf)) { throw "WinSCP-Abhängigkeit fehlt: $dll" }
+        $Settings.Sftp['WinScpNetDllPath'] = $dll
+    }
+}
+
 function Ensure-Directory {
     [CmdletBinding()]
     param(
@@ -1961,6 +2050,7 @@ function Send-QuoteCsv {
         [Parameter(Mandatory)] [hashtable] $Defaults,
         [Parameter(Mandatory)] [hashtable] $NumberRangeConfig,
         [Parameter(Mandatory)] [hashtable] $MasterDataConfig,
+        [Parameter(Mandatory)] [hashtable] $MappingConfig,
         [Parameter(Mandatory)] [string] $LogPath,
         [Parameter(Mandatory)] [string] $RequestDumpDirectory,
         [switch] $DryRun
@@ -1995,8 +2085,10 @@ function Send-QuoteCsv {
         $addUrl = "$baseUrl/add"
     }
 
-    $headerTable = [string](Get-ConfigValue $ApiConfig 'HeaderTable' 'TVPFTEST.AGKO')
-    $positionTable = [string](Get-ConfigValue $ApiConfig 'PositionTable' 'TVPFTEST.AGPO')
+    $headerTable = [string](Get-ConfigValue $MappingConfig.Output 'HeaderTable' '')
+    $positionTable = [string](Get-ConfigValue $MappingConfig.Output 'PositionTable' '')
+    Test-QualifiedTableName $headerTable
+    Test-QualifiedTableName $positionTable
     Test-QualifiedTableName -TableName $headerTable
     Test-QualifiedTableName -TableName $positionTable
 
@@ -2076,7 +2168,11 @@ function Send-QuoteCsv {
             -LogPath $LogPath
     }
 
-    $rows = @(Import-Csv -LiteralPath $CsvPath -Delimiter ';' -Encoding UTF8)
+    $delimiterText = [string](Get-ConfigValue $MappingConfig.Input 'Delimiter' ';')
+    if ($delimiterText.Length -ne 1) { throw "Input.Delimiter muss genau ein Zeichen enthalten: '$delimiterText'." }
+    $encoding = [string](Get-ConfigValue $MappingConfig.Input 'Encoding' 'UTF8')
+    $sourceRows = @(Import-Csv -LiteralPath $CsvPath -Delimiter $delimiterText[0] -Encoding $encoding)
+    $rows = @(ConvertTo-CanonicalQuoteRows -Rows $sourceRows -ColumnMapping $MappingConfig.Input.Columns)
     Test-QuoteCsvSchema -Rows $rows
 
     $groups = @($rows | Group-Object -Property quote_unique_id)
@@ -2346,7 +2442,7 @@ function Send-QuoteCsv {
                 -LogPath $LogPath `
                 -Context "AGKO $trendId / $externalId" `
                 -RequestDumpDirectory $RequestDumpDirectory `
-                -DumpFileName "AGKO_${safeExternalId}_${trendId}.json" `
+                -DumpFileName (Resolve-QuoteFileName -Template ([string]$MappingConfig.Output.HeaderDumpFileName) -Tokens @{ ExternalId=$safeExternalId; TrendYear=$headerData.GKAGJJ; TrendNumber=$headerData.GKAGNR }) `
                 -TimeoutSeconds $timeoutSeconds `
                 -DryRun:$DryRun
 
@@ -2384,7 +2480,7 @@ function Send-QuoteCsv {
                     -LogPath $LogPath `
                     -Context "AGPO $trendId Pos=$($positionData.GPAGPO) / $externalId" `
                     -RequestDumpDirectory $RequestDumpDirectory `
-                    -DumpFileName "AGPO_${safeExternalId}_${trendId}_$($positionData.GPAGPO).json" `
+                    -DumpFileName (Resolve-QuoteFileName -Template ([string]$MappingConfig.Output.PositionDumpFileName) -Tokens @{ ExternalId=$safeExternalId; TrendYear=$headerData.GKAGJJ; TrendNumber=$headerData.GKAGNR; Position=$positionData.GPAGPO }) `
                     -TimeoutSeconds $timeoutSeconds `
                     -DryRun:$DryRun
 
@@ -2447,5 +2543,8 @@ Export-ModuleMember -Function @(
     'Read-ApiBearerToken',
     'Get-ProtectedSecret',
     'Get-ConfigValue',
+    'Import-QuoteImportDataFile',
+    'Resolve-QuoteFileName',
+    'Test-QuoteImportConfiguration',
     'Send-QuoteCsv'
 )

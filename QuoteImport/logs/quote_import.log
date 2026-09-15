@@ -1325,3 +1325,59 @@ RUN START: 2026-07-22 15:20:00
 [2026-07-22 15:20:04] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
 [2026-07-22 15:20:04] [INFO] Datei erfolgreich archiviert: D:\Quotation\QuoteImport\archive\sample-quotes_20260722_152004.csv
 [2026-07-22 15:20:05] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-07-23 08:20:28
+====================================================================================================
+[2026-07-23 08:20:28] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-23 08:20:29] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-23 08:20:29] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-07-23 12:01:36
+====================================================================================================
+[2026-07-23 12:01:36] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False, PromptForBearerToken=False
+[2026-07-23 12:01:36] [INFO] SFTP ist in der Konfiguration deaktiviert. Es werden nur lokale Dateien verarbeitet.
+[2026-07-23 12:01:36] [INFO] Keine CSV-Dateien zur Verarbeitung gefunden.
+====================================================================================================
+RUN START: 2026-09-15 14:35:11
+====================================================================================================
+[2026-09-15 14:35:11] [INFO] Start. Execute=False; SkipSftp=False; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-15 14:35:12] [INFO] Keine Eingabedatei passend zu '*.csv' gefunden.
+====================================================================================================
+RUN START: 2026-09-15 14:35:51
+====================================================================================================
+[2026-09-15 14:35:51] [INFO] Start. Execute=False; SkipSftp=False; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-15 14:35:51] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-15 14:35:51] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=True | VerifyHeaderAfterInsert=True
+[2026-09-15 14:35:51] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-09-15 14:35:51] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-15 14:35:51] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-09-15 14:35:51] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-09-15 14:35:51] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016
+[2026-09-15 14:35:51] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-09-15 14:35:51] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260915', Time='143551', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-15 14:35:51] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-09-15 14:35:51] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-15 14:35:51] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260915'
+[2026-09-15 14:35:51] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='143551'
+[2026-09-15 14:35:51] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-15 14:35:51] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-15 14:35:51] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260915'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='143551'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-15 14:35:52] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-15 14:35:52] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103016.json
+[2026-09-15 14:35:52] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c522 | DryRun=True
+[2026-09-15 14:35:52] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103016_10.json
+[2026-09-15 14:35:52] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c522 | DryRun=True
+[2026-09-15 14:35:52] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103016, Positionen=1
+[2026-09-15 14:35:52] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0

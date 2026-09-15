@@ -131,13 +131,16 @@ function Receive-QuoteCsvFromSftp {
     param(
         [Parameter(Mandatory)] [hashtable] $SftpConfig,
         [Parameter(Mandatory)] [string] $LocalDirectory,
+        [Parameter(Mandatory)] [string] $FileMask,
         [Parameter(Mandatory)] [string] $LogPath
     )
 
     Ensure-Directory -Path $LocalDirectory
 
     $remoteDirectory = [string](Get-SftpConfigValue $SftpConfig 'RemoteDirectory' '/')
-    $fileMask = [string](Get-SftpConfigValue $SftpConfig 'FileMask' '*.csv')
+    if ([string]::IsNullOrWhiteSpace($FileMask)) {
+        throw 'Input.FileMask in der Mappingdatei ist leer.'
+    }
     $session = $null
     $results = New-Object System.Collections.Generic.List[object]
 

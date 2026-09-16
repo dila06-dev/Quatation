@@ -1,45 +1,27 @@
-# Analyse der gelieferten Version und Änderungen in V14
+# Änderungen V15 → V16
 
-## Ausgangslage
+Die ERP-DDLs ersetzen die Beispielpayloads als Grundlage für Datentypen und Grenzen. Die fachlichen Mappingentscheidungen aus V15 bleiben erhalten.
 
-Das gelieferte Paket bestand aus drei Einstiegsskripten, zwei Modulen, einer großen kombinierten Konfigurationsdatei sowie Dokumentation und Beispieldaten. Ein RPG-Quellprogramm war nicht enthalten; die Analyse bezieht sich daher auf den tatsächlich gelieferten PowerShell-basierten Angebotimport für IBM i.
+| Bereich | V15 | V16 |
+|---|---|---|
+| AGKO | 31 Felder aus Beispiel | Alle 44 DDL-Felder |
+| AGPO | 44 Felder aus Beispiel | Alle 104 DDL-Felder aus Anhang |
+| Technisches Datum/Uhrzeit | JSON-String | JSON-Zahl gemäß NUMERIC |
+| Textgrenzen | Nur teilweise geprüft | MaxLength für jedes CHAR-Feld |
+| Numerische Grenzen | Keine vollständige DDL-Prüfung | Precision/Scale für jedes NUMERIC-Feld |
+| Zusatzfelder | Nicht vollständig enthalten | Expliziter Leerstring bzw. 0 gemäß DDL |
+| Schema-Dokumentation | Beispielbasiert | SQL-Auszüge, JSON-Schemaübersicht, vollständiges Feldverzeichnis |
 
-## Wesentliche Befunde
+`GKJDAT/GPJDAT` sind NUMERIC(8,0), `GKJZEI/GPJZEI` NUMERIC(6,0). Zum Beispiel wird 09:06:58 als Zahl `90658` übertragen. Uhrzeitprüfung verwendet intern sechs Stellen und lehnt 24:00:00 ab; Mitternacht wird als 0 übertragen.
 
-1. Die lokale Dateisuche verwendete fest `*.csv`, unabhängig von der SFTP-Konfiguration.
-2. Trennzeichen `;`, Kodierung `UTF8` und alle CSV-Spaltennamen waren im Common-Modul fest programmiert.
-3. Die Ausgabenamen für Archivdateien und AGKO-/AGPO-Dumps wurden in der Programmlogik zusammengesetzt.
-4. API-Zieltabellen lagen in derselben technischen Konfiguration wie Zugang, Pfade und Defaults.
-5. Es gab keine maschinenlesbare zentrale Liste der Software- und Modulabhängigkeiten.
-6. Eine Änderung des Lieferantenlayouts erforderte Codeänderungen im größten Modul.
-7. Der Batchlauf erzeugte keine eigenständige Ergebnisdatei je Eingabedatei.
+`GKKDNR/GPKDNR` sind CHAR(10). Die bisherige Mindestauffüllung auf sechs Zeichen bleibt fachliche Importkonfiguration, nicht eine aus CHAR(10) abgeleitete Pflicht, jede Kundennummer auf zehn Zeichen aufzufüllen.
 
-## Umgesetzte Architektur
+Neu hinzugefügte Datumszahlen ohne fachliche Zuordnung bleiben numerische 0 gemäß DDL. Für fachlich verwendete Datumsfelder gilt weiterhin die kalenderbezogene Prüfung des Mappings. `NOT NULL` bedeutet nicht automatisch, dass Leerstring/0 fachlich unzulässig ist. Umgekehrt beweist ein gültiger DB-Default keine fachliche Eignung für Trend.
 
-- `QuoteImport.settings.psd1` ist die einzige Quelle für Laufzeitparameter und Abhängigkeiten.
-- `QuoteImport.mapping.psd1` ist die einzige Quelle für Ein-/Ausgabeformat und Dateinamen.
-- Externe Zeilen werden direkt nach `Import-Csv` in das kanonische interne Schema transformiert.
-- SFTP- und lokale Dateiauswahl verwenden dieselbe gemappte Maske.
-- Archiv-, Ergebnis- und Dumpnamen werden über geprüfte Vorlagen erzeugt.
-- Zieltabellen werden aus dem Mapping gelesen und als `LIBRARY.TABLE` validiert.
-- Der Start validiert Abschnitte, Pflichtwerte, Module, PowerShell-Version und – bei aktiviertem SFTP – die WinSCP-DLL.
+`DbDefault` dokumentiert die Datenbankvorgabe. `Default` steuert die Importvorbelegung. Beispiel: GKFREX hat DB-Default Leerstring, bleibt im Import aber Pflicht, damit die externe Angebots-ID nicht verloren geht.
 
-## Bewusst beibehaltene fachliche Logik
+CCSID 1141 für AGKO bzw. 273 für AGPO wird als Metadatum mitgeführt. Das Modul prüft Zeichenlängen, jedoch nicht die Darstellbarkeit jedes Unicode-Zeichens in diesen CCSIDs. Die Zeichenkonvertierung bleibt Aufgabe der API/DB-Verbindung.
 
-- AGKO wird vor AGPO geschrieben.
-- Nach erfolgreichem AGKO-Schreiben kann eine Leseprüfung erfolgen.
-- Die Eingabe bleibt bei einem Fehler für Analyse und Wiederholung liegen.
-- Ohne `-Execute` gilt Dry-Run.
-- Die vorhandenen Feldlängen-, Datums-, Mengen-, Preis- und Duplikatprüfungen bleiben erhalten.
+Die SQL-Auszüge unter `reference` sind Dokumentation. Der Import führt weder CREATE TABLE noch GRANT-Anweisungen aus. Die Importziele bleiben TVPFTEST.AGKO und TVPFTEST.AGPO. Die tatsächliche Gleichheit dieser Testtabellen mit der gelieferten TVPF-DDL wurde mangels Systemzugriff nicht geprüft.
 
-## Offene produktive Entscheidungen
-
-- Die korrekten Produktivtabellen müssen fachlich bestätigt werden.
-- Die SQL-Templates für Kunden- und Artikelstamm sind noch leer und verwenden Fallbacks.
-- Der produktive Nummernkreis benötigt eine atomare API; die feste Suchnummer ist nur für kontrollierte Tests geeignet.
-- Der echte SFTP-Benutzer und SSH-Host-Key-Fingerprint müssen gesetzt werden.
-- Für eine echte Transaktionssicherheit muss die Serverseite AGKO und AGPO gemeinsam committen oder rollbacken können.
-
-## Qualitätsprüfung
-
-Im bereitgestellten Laufzeitcontainer war kein PowerShell-Interpreter vorhanden. Deshalb wurden statische Struktur-, Referenz-, Klammer- und Hardcoding-Prüfungen durchgeführt und `tests/Test-ProjectStructure.ps1` für die verbindliche Prüfung unter Windows PowerShell 5.1 beigelegt. Vor dem ersten API-Lauf muss dieser Test auf dem Zielserver erfolgreich sein.
+Die Offline-Tests decken Feldabdeckung, JSON-Zahlentypen, Datums-/Uhrzeitwerte, Textlängen, numerischen Überlauf und überzählige Nachkommastellen ab. In dieser Laufzeit fehlt PowerShell; die Tests sind bereitgestellt, aber hier nicht ausgeführt.

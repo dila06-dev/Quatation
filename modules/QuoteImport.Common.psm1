@@ -98,13 +98,12 @@ function ConvertTo-CanonicalQuoteRows {
     )
     if ($Rows.Count -eq 0) { return @() }
     $available = @($Rows[0].PSObject.Properties.Name)
-    $missingSources = @($ColumnMapping.Keys | ForEach-Object { [string]$ColumnMapping[$_] } | Where-Object { $_ -notin $available } | Sort-Object -Unique)
-    if ($missingSources.Count -gt 0) { throw "Gemappte Quellspalten fehlen in der Eingabedatei: $($missingSources -join ', ')" }
     $result = foreach ($row in $Rows) {
         $canonical = [ordered]@{}
         foreach ($target in $ColumnMapping.Keys) {
             $source = [string]$ColumnMapping[$target]
-            $canonical[[string]$target] = $row.PSObject.Properties[$source].Value
+            $property = $row.PSObject.Properties[$source]
+            $canonical[[string]$target] = if ($null -eq $property) { '' } else { $property.Value }
         }
         [pscustomobject]$canonical
     }
@@ -121,7 +120,7 @@ function Test-QuoteImportConfiguration {
     foreach ($section in @('Dependencies','Paths','Api','Defaults','NumberRange','MasterData','Sftp')) {
         if (-not $Settings.ContainsKey($section)) { throw "Parameterdatei: Abschnitt '$section' fehlt." }
     }
-    foreach ($section in @('Input','Output')) {
+    foreach ($section in @('Input','Output','Erp')) {
         if (-not $Mapping.ContainsKey($section)) { throw "Mappingdatei: Abschnitt '$section' fehlt." }
     }
     foreach ($name in @('IncomingDirectory','ArchiveDirectory','ResultDirectory','LogPath','RequestDumpDirectory')) {
@@ -135,6 +134,32 @@ function Test-QuoteImportConfiguration {
     if ($missingCanonical.Count -gt 0) { throw "Mapping für interne Pflichtfelder fehlt: $($missingCanonical -join ', ')" }
     foreach ($name in @('HeaderTable','PositionTable','ArchiveFileName','ResultFileName','HeaderDumpFileName','PositionDumpFileName')) {
         if ([string]::IsNullOrWhiteSpace([string]$Mapping.Output[$name])) { throw "Mapping Output.$name fehlt oder ist leer." }
+    }
+    foreach ($table in @('AGKO','AGPO')) {
+        if (-not $Mapping.Erp.ContainsKey($table)) { throw "ERP-Mapping $table fehlt." }
+        $seen = @{}
+        foreach ($rule in $Mapping.Erp[$table]) {
+            if ($seen.ContainsKey($rule.Field)) { throw "Doppeltes Mappingfeld $($rule.Field)." }
+            $seen[$rule.Field] = $true
+            if ($rule.Source -and $rule.Source -notmatch '^(Csv|Header|Customer|Article|Runtime|Number|Position|Calc)\.[A-Za-z0-9_]+$') {
+                throw "Unbekannte Mappingquelle '$($rule.Source)'."
+            }
+            if ($rule.Type -notin @('String','Int','Decimal','Date','Time')) { throw "Unbekannter Mappingtyp '$($rule.Type)'." }
+            # SQL-Metadaten stammen aus der gelieferten DDL; Typwidersprueche stoppen vor API-Zugriffen.
+            if ($rule.SqlType -eq 'CHAR') {
+                if ($rule.Type -ne 'String' -or [int]$rule.MaxLength -lt 1) { throw "CHAR-Mapping ungueltig: $($rule.Field)" }
+            } elseif ($rule.SqlType -eq 'NUMERIC') {
+                if ($rule.Type -notin @('Int','Decimal','Date','Time') -or
+                    [int]$rule.Precision -lt 1 -or [int]$rule.Precision -gt 28 -or
+                    [int]$rule.Scale -lt 0 -or [int]$rule.Scale -gt [int]$rule.Precision) {
+                    throw "NUMERIC-Mapping ungueltig: $($rule.Field)"
+                }
+                if ($rule.Type -ne 'Decimal' -and [int]$rule.Scale -ne 0) { throw "Skalierter Wert braucht Decimal: $($rule.Field)" }
+            } else { throw "SQL-Typ fehlt/ungueltig: $($rule.Field)" }
+            if ($rule.Source -like 'Csv.*' -and -not $Mapping.Input.Columns.ContainsKey($rule.Source.Substring(4))) {
+                throw "CSV-Alias fuer $($rule.Source) fehlt in Input.Columns."
+            }
+        }
     }
     foreach ($module in @($Settings.Dependencies.RequiredModules)) {
         if (-not (Test-Path -LiteralPath (Join-Path $ProjectRoot "modules\$module") -PathType Leaf)) { throw "Abhängiges Modul fehlt: $module" }
@@ -394,21 +419,8 @@ function ConvertTo-DecimalValue {
     }
 
     $text = ([string]$Value).Trim()
-    $numberStyles = [System.Globalization.NumberStyles]::Number
-    $result = [decimal]0
-
-    $cultures = @(
-        [System.Globalization.CultureInfo]::InvariantCulture,
-        [System.Globalization.CultureInfo]::GetCultureInfo('de-DE')
-    )
-
-    foreach ($culture in $cultures) {
-        if ([decimal]::TryParse($text, $numberStyles, $culture, [ref]$result)) {
-            return $result
-        }
-    }
-
-    throw "Ungültiger Dezimalwert in '$FieldName': '$text'."
+    if ($text -notmatch '^[+-]?\d+([.,]\d+)?$') { throw "Ungueltiger Dezimalwert in '$FieldName': '$text'. Keine Tausendertrennzeichen verwenden." }
+    return [decimal]::Parse($text.Replace(',', '.'), [System.Globalization.CultureInfo]::InvariantCulture)
 }
 
 function ConvertTo-CustomerNumber {
@@ -964,11 +976,11 @@ function Get-CustomerMasterData {
 
     $fallback = Get-ConfigValue -Object $MasterDataConfig -Name 'CustomerFallback' -Default @{}
     $result = [ordered]@{
-        CurrencyCode       = [string](Get-ConfigValue -Object $fallback -Name 'CurrencyCode' -Default 'EUR')
+        CurrencyCode       = [string](Get-ConfigValue -Object $fallback -Name 'CurrencyCode' -Default '')
         ShippingCondition  = [string](Get-ConfigValue -Object $fallback -Name 'ShippingCondition' -Default '')
         DeliveryCondition  = [string](Get-ConfigValue -Object $fallback -Name 'DeliveryCondition' -Default '')
         PaymentCondition   = [string](Get-ConfigValue -Object $fallback -Name 'PaymentCondition' -Default '')
-        LanguageCode       = [string](Get-ConfigValue -Object $fallback -Name 'LanguageCode' -Default 'D')
+        LanguageCode       = [string](Get-ConfigValue -Object $fallback -Name 'LanguageCode' -Default '')
         Source             = 'Fallback'
     }
 
@@ -1023,8 +1035,8 @@ function Get-ArticleMasterData {
     $result = [ordered]@{
         Description1 = [string](Get-ConfigValue -Object $fallback -Name 'Description1' -Default '')
         Description2 = [string](Get-ConfigValue -Object $fallback -Name 'Description2' -Default '')
-        QuantityUnit = [string](Get-ConfigValue -Object $fallback -Name 'QuantityUnit' -Default 'S')
-        PriceUnit    = [string](Get-ConfigValue -Object $fallback -Name 'PriceUnit' -Default 'S')
+        QuantityUnit = [string](Get-ConfigValue -Object $fallback -Name 'QuantityUnit' -Default '')
+        PriceUnit    = [string](Get-ConfigValue -Object $fallback -Name 'PriceUnit' -Default '')
         Source       = 'Fallback'
     }
 
@@ -1250,7 +1262,7 @@ function Test-QuoteGroup {
     [void](ConvertTo-LimitedText -Value $ExternalId -MaxLength 20 -FailWhenTooLong -FieldName 'quote_unique_id')
 
     $first = $Rows[0]
-    $headerFields = @('customer_number', 'quote_number', 'quote_date', 'valid_from', 'valid_to', 'reference_2')
+    $headerFields = @('customer_number', 'quote_number', 'quote_date', 'valid_from', 'valid_to', 'reference_2', 'field_sales_id')
 
     foreach ($field in $headerFields) {
         $expected = [string](Get-ObjectPropertyValue -Object $first -Names @($field) -Default '')
@@ -1630,17 +1642,9 @@ function New-TechnicalRuntimeDefaults {
         }
     }
 
-    $jobName = ConvertTo-LimitedText `
-        -Value (Get-ConfigValue $runtimeConfig 'JobName' 'APICAL') `
-        -MaxLength 10 `
-        -FailWhenTooLong `
-        -FieldName 'TechnicalRuntimeFields.JobName'
-
-    $user = ConvertTo-LimitedText `
-        -Value (Get-ConfigValue $runtimeConfig 'User' 'DILA') `
-        -MaxLength 10 `
-        -FailWhenTooLong `
-        -FieldName 'TechnicalRuntimeFields.User'
+    # Jobname und Benutzer werden direkt je ERP-Feld im Mapping definiert.
+    $jobName = ''
+    $user = ''
 
     $dateMode = (
         [string](Get-ConfigValue $runtimeConfig 'DateMode' 'Current')
@@ -1734,300 +1738,136 @@ function New-TechnicalRuntimeDefaults {
     }
 }
 
-function Add-TechnicalRuntimeFields {
-    <#
-    .SYNOPSIS
-        Fügt die technischen Laufzeitfelder einem AGKO-/AGPO-Objekt hinzu.
-    #>
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)]
-        [System.Collections.Specialized.OrderedDictionary] $Data,
-
-        [Parameter(Mandatory)]
-        $RuntimeValues,
-
-        [Parameter(Mandatory)]
-        [ValidateSet('Header', 'Position')]
-        [string] $Target,
-
-        [Parameter(Mandatory)]
-        [string] $LogPath
-    )
-
-    if (-not [bool]$RuntimeValues.Enabled) {
-        return
-    }
-
-    if ($Target -eq 'Header') {
-        $fieldValues = [ordered]@{
-            GKJNAM = $RuntimeValues.JobName
-            GKJDAT = $RuntimeValues.Date
-            GKJZEI = $RuntimeValues.Time
-            GKUSER = $RuntimeValues.User
+function Get-ErpSourceValue {
+    # Pfade sind Daten, kein ausfuehrbarer PowerShell-Code.
+    param([string]$Path, [hashtable]$Context)
+    $value = $Context
+    foreach ($part in $Path.Split('.')) {
+        if ($null -eq $value) { return $null }
+        if ($value -is [System.Collections.IDictionary]) {
+            if (-not $value.Contains($part)) { return $null }
+            $value = $value[$part]
+        } else {
+            $property = $value.PSObject.Properties[$part]
+            if ($null -eq $property) { return $null }
+            $value = $property.Value
         }
-
-        $context = 'AGKO-Laufzeitvorbelegung'
     }
-    else {
-        $fieldValues = [ordered]@{
-            GPJNAM = $RuntimeValues.JobName
-            GPJDAT = $RuntimeValues.Date
-            GPJZEI = $RuntimeValues.Time
-            GPUSER = $RuntimeValues.User
-        }
-
-        $context = 'AGPO-Laufzeitvorbelegung'
-    }
-
-    foreach ($fieldName in $fieldValues.Keys) {
-        if ($Data.Contains($fieldName)) {
-            throw "$context würde das bereits vorhandene Feld $fieldName überschreiben."
-        }
-
-        [void]$Data.Add($fieldName, $fieldValues[$fieldName])
-
-        Write-QuoteLog `
-            -Message "$context ergänzt: $fieldName='$($fieldValues[$fieldName])'" `
-            -Level DEBUG `
-            -LogPath $LogPath
-    }
+    return $value
 }
 
-function Add-ConfiguredDatabaseFields {
-    <#
-    .SYNOPSIS
-        Ergänzt ein AGKO-/AGPO-Datenobjekt um konfigurierte Zusatzfelder.
-
-    .DESCRIPTION
-        Die Kernfelder werden weiterhin durch das fachliche Mapping erzeugt.
-        Zusatzfelder dienen ausschließlich für technisch/fachlich bestätigte
-        Vorbelegungen.
-
-        Schutzmechanismen:
-        - nur IBM-i-ähnliche Feldnamen A-Z/0-9/_,
-        - vorhandene Kernfelder dürfen nicht überschrieben werden,
-        - NULL-Werte werden als leere Zeichenfolge übertragen,
-        - jedes ergänzte Feld wird im DEBUG-Log genannt.
-    #>
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)]
-        [System.Collections.Specialized.OrderedDictionary] $Data,
-
-        [AllowNull()]
-        $AdditionalFields,
-
-        [Parameter(Mandatory)]
-        [string] $Context,
-
-        [Parameter(Mandatory)]
-        [string] $LogPath
-    )
-
-    if ($null -eq $AdditionalFields) {
-        return
+function Resolve-ErpValue {
+    # Nur fehlend/null/Leertext aktiviert eine Vorbelegung. Numerische Null bleibt erhalten.
+    param([hashtable]$Rule, [hashtable]$Context)
+    $value = $null
+    if ($Rule.Source) { $value = Get-ErpSourceValue $Rule.Source $Context }
+    if ($null -eq $value -or [string]::IsNullOrWhiteSpace([string]$value)) {
+        if ($Rule.ContainsKey('FallbackSource')) {
+            $value = Get-ErpSourceValue $Rule.FallbackSource $Context
+            if ($Rule.ContainsKey('AddDays')) {
+                $date = [datetime]::ParseExact([string]$value, 'yyyyMMdd', [cultureinfo]::InvariantCulture)
+                $value = $date.AddDays([int]$Rule.AddDays).ToString('yyyyMMdd')
+            }
+        } elseif ($Rule.ContainsKey('Default')) { $value = $Rule.Default }
+        else { throw "ERP-Feld $($Rule.Field): Quelle '$($Rule.Source)' fehlt/ist leer; keine Vorbelegung konfiguriert." }
     }
-
-    if (-not ($AdditionalFields -is [System.Collections.IDictionary])) {
-        throw "$Context muss als Hashtable/Dictionary konfiguriert werden."
+    # Fehlerhafte vorhandene Werte werden niemals durch Defaultwerte verdeckt.
+    switch ($Rule.Type) {
+        'String' {
+            $value = ([string]$value).Trim()
+            if ($Rule.ContainsKey('Pad')) { $value = $value.PadLeft([int]$Rule.Pad, '0') }
+            if ($Rule.ContainsKey('MaxLength') -and $value.Length -gt [int]$Rule.MaxLength) {
+                throw "ERP-Feld $($Rule.Field): maximale Laenge $($Rule.MaxLength) ueberschritten."
+            }
+        }
+        'Int' {
+            if ([string]$value -notmatch '^[+-]?\d+$') { throw "ERP-Feld $($Rule.Field): keine ganze Zahl." }
+            $value = [int]$value
+        }
+        'Decimal' { $value = ConvertTo-DecimalValue $value $Rule.Field }
+        'Date' { $value = ConvertTo-TrendDate ([string]$value) $Rule.Field }
+        'Time' {
+            # JSON-Zahlen verlieren fuehrende Nullen. Fuer HHmmss-Pruefung links auffuellen.
+            $text = ([string]$value).Trim()
+            if ($text -notmatch '^\d{1,6}$') { throw "ERP-Feld $($Rule.Field): Uhrzeit muss HHmmss entsprechen." }
+            $text = $text.PadLeft(6, '0')
+            $parsedTime = [datetime]::MinValue
+            if (-not [datetime]::TryParseExact($text, 'HHmmss', [cultureinfo]::InvariantCulture,
+                [System.Globalization.DateTimeStyles]::None, [ref]$parsedTime)) {
+                throw "ERP-Feld $($Rule.Field): ungueltige Uhrzeit '$text'."
+            }
+            $value = [int]$text
+        }
+        default { throw "Unbekannter Mappingtyp '$($Rule.Type)' fuer $($Rule.Field)." }
     }
-
-    foreach ($rawFieldName in @($AdditionalFields.Keys | Sort-Object)) {
-        $fieldName = ([string]$rawFieldName).Trim().ToUpperInvariant()
-
-        if ($fieldName -notmatch '^[A-Z][A-Z0-9_]{0,29}$') {
-            throw "Ungültiger Datenbankfeldname in ${Context}: '$rawFieldName'."
+    if ($Rule.ContainsKey('Precision')) {
+        # Decimal-Arithmetik statt Double: Grenzen bleiben bis zur angegebenen Praezision exakt.
+        # Zu viele Nachkommastellen werden abgewiesen, nicht still gerundet.
+        $number = [decimal]$value
+        $scale = [int]$Rule.Scale
+        $precision = [int]$Rule.Precision
+        if ($scale -lt 0 -or $precision -lt 1 -or $precision -gt 28 -or $scale -gt $precision) {
+            throw "ERP-Feld $($Rule.Field): ungueltige Precision/Scale."
         }
-
-        if ($Data.Contains($fieldName)) {
-            throw "Zusatzfeld $fieldName in $Context würde ein bereits gemapptes Kernfeld überschreiben. Das ist nicht zulässig."
+        if ([decimal]::Round($number, $scale) -ne $number) {
+            throw "ERP-Feld $($Rule.Field): mehr als $scale Nachkommastellen."
         }
-
-        $value = $AdditionalFields[$rawFieldName]
-
-        if ($null -eq $value) {
-            $value = ''
+        $limit = [decimal]1
+        for ($digit = 0; $digit -lt ($precision - $scale); $digit++) { $limit *= 10 }
+        # System.Math bietet Abs(Decimal) auch im .NET Framework von PowerShell 5.1.
+        if ([math]::Abs($number) -ge $limit) {
+            throw "ERP-Feld $($Rule.Field): Wert passt nicht in NUMERIC($precision,$scale)."
         }
-
-        [void]$Data.Add($fieldName, $value)
-
-        Write-QuoteLog `
-            -Message "$Context ergänzt: $fieldName='$value'" `
-            -Level DEBUG `
-            -LogPath $LogPath
     }
+    return $value
 }
 
-function New-QuoteHeaderData {
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] $FirstRow,
-        [Parameter(Mandatory)] $NumberRange,
-        [Parameter(Mandatory)] $CustomerMaster,
-        [Parameter(Mandatory)] [hashtable] $Defaults,
-        [Parameter(Mandatory)] $TechnicalRuntimeValues,
-        [Parameter(Mandatory)] [string] $ExternalId,
-        [Parameter(Mandatory)] [string] $LogPath
-    )
-
-    $company = [string](Get-ConfigValue -Object $Defaults -Name 'Company' -Default '01')
-    $documentType = [string](Get-ConfigValue -Object $Defaults -Name 'DocumentType' -Default '150')
-    $customerLength = [int](Get-ConfigValue -Object $Defaults -Name 'CustomerNumberMinimumLength' -Default 6)
-    $customerNumber = ConvertTo-CustomerNumber -Value ([string]$FirstRow.customer_number) -MinimumLength $customerLength
-    $defaultResponsible = [string](Get-ConfigValue -Object $Defaults -Name 'Responsible' -Default 'TIK')
-    $responsible = Get-ResponsibleCode -CsvValue $FirstRow.field_sales_id -DefaultValue $defaultResponsible -LogPath $LogPath
-
-    $numberText = ([int]$NumberRange.Number).ToString('000000')
-
-    $data = [ordered]@{
-        GKFIRM = ConvertTo-LimitedText -Value $company -MaxLength 2 -FailWhenTooLong -FieldName 'GKFIRM'
-        GKAGAR = ConvertTo-LimitedText -Value $documentType -MaxLength 3 -FailWhenTooLong -FieldName 'GKAGAR'
-        GKAGJJ = [int]$NumberRange.Year
-        GKAGNN = [int]$NumberRange.Number
-        GKAGNR = $numberText
-        GKKDNR = $customerNumber
-        GKSABE = $responsible
-        GKWKNR = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'Plant' '001') -MaxLength 3 -FailWhenTooLong -FieldName 'GKWKNR'
-        GKABTL = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'Department' 'VK') -MaxLength 3 -FailWhenTooLong -FieldName 'GKABTL'
-        GKABAR = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'OutputType' 'D') -MaxLength 1 -FailWhenTooLong -FieldName 'GKABAR'
-        GKWACD = ConvertTo-LimitedText -Value $CustomerMaster.CurrencyCode -MaxLength 3 -FailWhenTooLong -FieldName 'GKWACD'
-        GKAGST = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'Status' '00') -MaxLength 2 -FailWhenTooLong -FieldName 'GKAGST'
-        GKGADA = ConvertTo-TrendDate -Value ([string]$FirstRow.valid_from) -FieldName 'valid_from'
-        GKGBDA = ConvertTo-TrendDate -Value ([string]$FirstRow.valid_to) -FieldName 'valid_to'
-        GKAGDA = ConvertTo-TrendDate -Value ([string]$FirstRow.quote_date) -FieldName 'quote_date'
-        GKARF1 = ConvertTo-LimitedText -Value $FirstRow.quote_number -MaxLength 30
-        GKARF2 = ConvertTo-LimitedText -Value $FirstRow.reference_2 -MaxLength 30
-        GKVSBD = ConvertTo-LimitedText -Value $CustomerMaster.ShippingCondition -MaxLength 3
-        GKLIBD = ConvertTo-LimitedText -Value $CustomerMaster.DeliveryCondition -MaxLength 3
-        GKZABD = ConvertTo-LimitedText -Value $CustomerMaster.PaymentCondition -MaxLength 3
-        GKSPCD = ConvertTo-LimitedText -Value $CustomerMaster.LanguageCode -MaxLength 1
-        GKWVDA = 0
-        GKKOND = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'PrintConditions' 'J') -MaxLength 1 -FailWhenTooLong -FieldName 'GKKOND'
-        GKTLKZ = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'CompleteDelivery' 'N') -MaxLength 1 -FailWhenTooLong -FieldName 'GKTLKZ'
-        GKFREX = ConvertTo-LimitedText -Value $ExternalId -MaxLength 20 -FailWhenTooLong -FieldName 'GKFREX/quote_unique_id'
+function New-ErpPayloadData {
+    <#
+      Baut ausschliesslich die in Erp.AGKO/AGPO definierten Felder auf.
+      Zuerst werden Basisfelder typisiert, danach abhaengige Betraege berechnet.
+      Kopf und alle Positionen werden vom Aufrufer vor dem ersten POST erzeugt.
+    #>
+    param([object[]]$Rules, [hashtable]$Context, [string]$LogPath)
+    $data = [ordered]@{}
+    foreach ($rule in $Rules) {
+        if ($rule.Field -notmatch '^(GK|GP)[A-Z0-9]+$') { throw "Ungueltiger ERP-Feldname '$($rule.Field)'." }
+        if ($data.Contains($rule.Field)) { throw "Doppeltes ERP-Feld '$($rule.Field)'." }
+        if ($rule.Source -like 'Calc.*') { continue }
+        $data[$rule.Field] = Resolve-ErpValue $rule $Context
+        if ($LogPath) {
+            # Quelle/Fallback wird protokolliert, nicht der vollstaendige Nutzwert.
+            $origin = $rule.Source
+            $raw = if ($origin) { Get-ErpSourceValue $origin $Context } else { $null }
+            if ($null -eq $raw -or [string]::IsNullOrWhiteSpace([string]$raw)) { $origin = 'Vorbelegung' }
+            Write-QuoteLog -Message "Mapping $($rule.Field) <- $origin; Typ=$($rule.Type)" -Level DEBUG -LogPath $LogPath
+        }
     }
-
-    # -----------------------------------------------------------------
-    # Technische Laufzeitfelder
-    # -----------------------------------------------------------------
-    Add-TechnicalRuntimeFields `
-        -Data $data `
-        -RuntimeValues $TechnicalRuntimeValues `
-        -Target Header `
-        -LogPath $LogPath
-
-    # -----------------------------------------------------------------
-    # Frei erweiterbare statische Zusatzfelder
-    # -----------------------------------------------------------------
-    $additionalHeaderFields = Get-ConfigValue `
-        -Object $Defaults `
-        -Name 'AdditionalHeaderFields' `
-        -Default @{}
-
-    Add-ConfiguredDatabaseFields `
-        -Data $data `
-        -AdditionalFields $additionalHeaderFields `
-        -Context 'AGKO-Zusatzvorbelegung' `
-        -LogPath $LogPath
-
+    $calculated = @($Rules | Where-Object { $_.Source -like 'Calc.*' })
+    if ($calculated.Count -gt 0) {
+        $quantity = [decimal]$data.GPMENG
+        $price = [decimal]$data.GPPREI
+        $discount = [decimal]$data.GPKOW1
+        if ($quantity -le 0 -or $discount -lt 0 -or $discount -gt 100 -or $price -lt 0) {
+            throw 'Gemappte Menge/Preis/Rabatt ausserhalb des gueltigen Bereichs.'
+        }
+        # Expliziter Nettopreis hat Vorrang; sonst Bruttopreis minus prozentualer Rabatt.
+        $netText = [string]$Context.Csv.net_unit_price
+        $net = if ([string]::IsNullOrWhiteSpace($netText)) { $price * (1 - $discount / 100) } else { ConvertTo-DecimalValue $netText 'net_unit_price' }
+        if ($net -lt 0) { throw 'Nettopreis darf nicht negativ sein.' }
+        $Context.Calc = @{
+            GoodsValue = [math]::Round($quantity * $price, 2, [MidpointRounding]::AwayFromZero)
+            NetTotal = [math]::Round($quantity * $net, 2, [MidpointRounding]::AwayFromZero)
+            OriginalPrice = [math]::Round($price, 2, [MidpointRounding]::AwayFromZero)
+        }
+        foreach ($rule in $calculated) {
+            if ($data.Contains($rule.Field)) { throw "Doppeltes ERP-Feld '$($rule.Field)'." }
+            $data[$rule.Field] = Resolve-ErpValue $rule $Context
+        }
+    }
     return $data
 }
 
-function New-QuotePositionData {
-    [CmdletBinding()]
-    param(
-        [Parameter(Mandatory)] $Row,
-        [Parameter(Mandatory)] [int] $PositionNumber,
-        [Parameter(Mandatory)] $HeaderData,
-        [Parameter(Mandatory)] $ArticleMaster,
-        [Parameter(Mandatory)] [hashtable] $Defaults,
-        [Parameter(Mandatory)] $TechnicalRuntimeValues,
-        [Parameter(Mandatory)] [string] $LogPath
-    )
-
-    $quantity = ConvertTo-DecimalValue -Value $Row.quantity -FieldName 'quantity'
-    $discount = ConvertTo-DecimalValue -Value $Row.discount -FieldName 'discount' -AllowEmpty -DefaultValue 0
-
-    $grossEmpty = [string]::IsNullOrWhiteSpace([string]$Row.gross_unit_price)
-    $netEmpty = [string]::IsNullOrWhiteSpace([string]$Row.net_unit_price)
-
-    if ($grossEmpty) {
-        $grossUnitPrice = ConvertTo-DecimalValue -Value $Row.net_unit_price -FieldName 'net_unit_price'
-    }
-    else {
-        $grossUnitPrice = ConvertTo-DecimalValue -Value $Row.gross_unit_price -FieldName 'gross_unit_price'
-    }
-
-    if ($netEmpty) {
-        $netUnitPrice = $grossUnitPrice * (1 - ($discount / 100))
-    }
-    else {
-        $netUnitPrice = ConvertTo-DecimalValue -Value $Row.net_unit_price -FieldName 'net_unit_price'
-    }
-
-    $goodsValue = [math]::Round(($quantity * $grossUnitPrice), 2, [System.MidpointRounding]::AwayFromZero)
-    $netTotal = [math]::Round(($quantity * $netUnitPrice), 2, [System.MidpointRounding]::AwayFromZero)
-
-    $data = [ordered]@{
-        GPFIRM = $HeaderData.GKFIRM
-        GPKDNR = $HeaderData.GKKDNR
-        GPAGJJ = $HeaderData.GKAGJJ
-        GPAGNR = $HeaderData.GKAGNR
-        GPAGPO = $PositionNumber
-        GPAGAR = $HeaderData.GKAGAR
-        GPWKNR = $HeaderData.GKWKNR
-        GPABTL = $HeaderData.GKABTL
-        GPSABE = $HeaderData.GKSABE
-        GPABAR = $HeaderData.GKABAR
-        GPWACD = $HeaderData.GKWACD
-        GPAGST = $HeaderData.GKAGST
-        GPGADA = $HeaderData.GKGADA
-        GPGBDA = $HeaderData.GKGBDA
-        GPTENR = ConvertTo-LimitedText -Value $Row.article_number -MaxLength 15 -FailWhenTooLong -FieldName 'GPTENR/article_number'
-        GPMENG = [decimal]$quantity
-        GPTBZ1 = ConvertTo-LimitedText -Value $ArticleMaster.Description1 -MaxLength 30
-        GPTBZ2 = ConvertTo-LimitedText -Value $ArticleMaster.Description2 -MaxLength 30
-        GPMEIN = ConvertTo-LimitedText -Value $ArticleMaster.QuantityUnit -MaxLength 1 -FailWhenTooLong -FieldName 'GPMEIN'
-        GPMEPR = ConvertTo-LimitedText -Value $ArticleMaster.PriceUnit -MaxLength 1 -FailWhenTooLong -FieldName 'GPMEPR'
-        GPWAWT = [decimal]$goodsValue
-        GPKURS = [decimal]0
-        GPPRAR = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'PriceType' 'AKD') -MaxLength 3 -FailWhenTooLong -FieldName 'GPPRAR'
-        GPPREI = [math]::Round([decimal]$grossUnitPrice, 3, [System.MidpointRounding]::AwayFromZero)
-        GPNESU = [decimal]$netTotal
-        GPPDIM = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'PriceDimension' '1') -MaxLength 1 -FailWhenTooLong -FieldName 'GPPDIM'
-        GPKON1 = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'ConditionType' 'RA5') -MaxLength 3 -FailWhenTooLong -FieldName 'GPKON1'
-        GPKOW1 = [math]::Round([decimal]$discount, 2, [System.MidpointRounding]::AwayFromZero)
-        GPPRZ1 = ConvertTo-LimitedText -Value (Get-ConfigValue $Defaults 'ConditionIsPercent' 'J') -MaxLength 1 -FailWhenTooLong -FieldName 'GPPRZ1'
-        GPAGDA = $HeaderData.GKAGDA
-        GPURPR = [math]::Round([decimal]$grossUnitPrice, 2, [System.MidpointRounding]::AwayFromZero)
-    }
-
-    # -----------------------------------------------------------------
-    # Technische Laufzeitfelder
-    # -----------------------------------------------------------------
-    Add-TechnicalRuntimeFields `
-        -Data $data `
-        -RuntimeValues $TechnicalRuntimeValues `
-        -Target Position `
-        -LogPath $LogPath
-
-    # -----------------------------------------------------------------
-    # Frei erweiterbare statische Zusatzfelder
-    # -----------------------------------------------------------------
-    $additionalPositionFields = Get-ConfigValue `
-        -Object $Defaults `
-        -Name 'AdditionalPositionFields' `
-        -Default @{}
-
-    Add-ConfiguredDatabaseFields `
-        -Data $data `
-        -AdditionalFields $additionalPositionFields `
-        -Context "AGPO-Zusatzvorbelegung Position $PositionNumber" `
-        -LogPath $LogPath
-
-    return $data
-}
 
 function Send-QuoteCsv {
     <#
@@ -2173,6 +2013,21 @@ function Send-QuoteCsv {
     $encoding = [string](Get-ConfigValue $MappingConfig.Input 'Encoding' 'UTF8')
     $sourceRows = @(Import-Csv -LiteralPath $CsvPath -Delimiter $delimiterText[0] -Encoding $encoding)
     $rows = @(ConvertTo-CanonicalQuoteRows -Rows $sourceRows -ColumnMapping $MappingConfig.Input.Columns)
+    # Vorbelegung vor Gruppierung, Stammdatenabfrage und fachlicher Pruefung.
+    # Die Regeln stammen ausschliesslich aus der ERP-Mappingdatei.
+    $fallbackRuntime = @{ Date=(Get-Date).ToString('yyyyMMdd'); Time=(Get-Date).ToString('HHmmss') }
+    foreach ($row in $rows) {
+        foreach ($rule in @($MappingConfig.Erp.AGKO) + @($MappingConfig.Erp.AGPO)) {
+            if ($rule.Source -like 'Csv.*') {
+                $column = $rule.Source.Substring(4)
+                if ($null -eq $row.PSObject.Properties[$column]) { $row | Add-Member NoteProperty $column '' }
+                if ([string]::IsNullOrWhiteSpace([string]$row.$column)) {
+                    Write-QuoteLog -Message "Mapping $($rule.Field): CSV '$column' fehlt/leer; Vorbelegung wird aufgeloest." -Level DEBUG -LogPath $LogPath
+                }
+                $row.$column = Resolve-ErpValue $rule @{ Csv=$row; Runtime=$fallbackRuntime }
+            }
+        }
+    }
     Test-QuoteCsvSchema -Rows $rows
 
     $groups = @($rows | Group-Object -Property quote_unique_id)
@@ -2191,8 +2046,8 @@ function Send-QuoteCsv {
         try {
             Test-QuoteGroup -Rows $groupRows -ExternalId $externalId
 
-            $company = [string](Get-ConfigValue $Defaults 'Company' '01')
-            $documentType = [string](Get-ConfigValue $Defaults 'DocumentType' '150')
+            $company = [string](Resolve-ErpValue ($MappingConfig.Erp.AGKO | Where-Object Field -eq 'GKFIRM') @{})
+            $documentType = [string](Resolve-ErpValue ($MappingConfig.Erp.AGKO | Where-Object Field -eq 'GKAGAR') @{})
 
             # Der bestätigte AGKO_select-Endpunkt kann nicht nach GKFREX suchen.
             # Eine externe-ID-Prüfung ist deshalb nur möglich, wenn ein separater
@@ -2399,27 +2254,18 @@ function Send-QuoteCsv {
                 -Defaults $Defaults `
                 -LogPath $LogPath
 
-            $headerData = New-QuoteHeaderData `
-                -FirstRow $firstRow `
-                -NumberRange $numberRange `
-                -CustomerMaster $customerMaster `
-                -Defaults $Defaults `
-                -TechnicalRuntimeValues $technicalRuntimeValues `
-                -ExternalId $externalId `
-                -LogPath $LogPath
+            $headerData = New-ErpPayloadData -Rules $MappingConfig.Erp.AGKO -Context @{
+                Csv=$firstRow; Number=$numberRange; Customer=$customerMaster; Runtime=$technicalRuntimeValues
+            } -LogPath $LogPath
 
             $positions = New-Object System.Collections.Generic.List[object]
             $positionNumber = 10
             foreach ($row in $groupRows) {
                 $articleNumber = ([string]$row.article_number).Trim()
-                $positionData = New-QuotePositionData `
-                    -Row $row `
-                    -PositionNumber $positionNumber `
-                    -HeaderData $headerData `
-                    -ArticleMaster $articleMasterByNumber[$articleNumber] `
-                    -Defaults $Defaults `
-                    -TechnicalRuntimeValues $technicalRuntimeValues `
-                    -LogPath $LogPath
+                $positionData = New-ErpPayloadData -Rules $MappingConfig.Erp.AGPO -Context @{
+                    Csv=$row; Header=$headerData; Article=$articleMasterByNumber[$articleNumber]
+                    Position=@{ Number=$positionNumber }; Runtime=$technicalRuntimeValues
+                } -LogPath $LogPath
 
                 $positions.Add($positionData)
                 $positionNumber += 10

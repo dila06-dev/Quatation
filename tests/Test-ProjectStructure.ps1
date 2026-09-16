@@ -1,9 +1,15 @@
-#requires -Version 5.1
+﻿#requires -Version 5.1
 [CmdletBinding()]
 param()
 Set-StrictMode -Version Latest
 $ErrorActionPreference='Stop'
 $root=Split-Path -Parent $PSScriptRoot
+# Echter PowerShell-Parser: Syntax aller Skripte/Module/Datendateien pruefen.
+foreach ($file in Get-ChildItem -LiteralPath $root -Recurse -File | Where-Object Extension -in @('.ps1','.psm1','.psd1')) {
+    $tokens=$null; $parseErrors=$null
+    [void][System.Management.Automation.Language.Parser]::ParseFile($file.FullName, [ref]$tokens, [ref]$parseErrors)
+    if ($parseErrors.Count -gt 0) { throw "Syntaxfehler in $($file.FullName): $($parseErrors -join '; ')" }
+}
 $required=@(
  'config\QuoteImport.settings.psd1','config\QuoteImport.mapping.psd1',
  'modules\QuoteImport.Common.psm1','modules\QuoteImport.Sftp.psm1',

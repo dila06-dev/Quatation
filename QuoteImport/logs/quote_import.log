@@ -1381,3 +1381,664 @@ RUN START: 2026-09-15 14:35:51
 [2026-09-15 14:35:52] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c522 | DryRun=True
 [2026-09-15 14:35:52] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103016, Positionen=1
 [2026-09-15 14:35:52] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-15 14:41:39
+====================================================================================================
+[2026-09-15 14:41:39] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-15 14:41:39] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-15 14:41:39] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-15 14:41:39] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-15 14:41:39] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-15 14:41:39] [INFO] Verarbeite quote_unique_id=63a6c522, quote_number=WVO-gyEmRyn7, Positionen=1
+[2026-09-15 14:41:39] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-15 14:41:39] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-09-15 14:41:39] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-09-15 14:41:39] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-15 14:41:39] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-15 14:41:40] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"135543","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn8","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c555"}]}
+[2026-09-15 14:41:40] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-15 14:41:40] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-09-15 14:41:40] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c555', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-09-15 14:41:40] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-09-15 14:41:40] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"XCAL1106","GKJDAT":"20260722","GKJZEI":"145028","GKUSER":"LANGLITZT","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRy10","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c622"}]}
+[2026-09-15 14:41:40] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-09-15 14:41:40] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-09-15 14:41:40] [WARN] Test-Angebotsnummer 2026/103017 ist belegt durch GKFREX='63a6c622', Kunde='255521'. Suche wird mit 2026/103018 fortgesetzt.
+[2026-09-15 14:41:41] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-09-15 14:41:41] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260722","GKJZEI":"152002","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103018","GKAGNR":"103018","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c688"}]}
+[2026-09-15 14:41:41] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 1
+[2026-09-15 14:41:41] [WARN] AGKO-Nummernprüfung: 2026/103018 existiert bereits. Kunde='255521'.
+[2026-09-15 14:41:41] [WARN] Test-Angebotsnummer 2026/103018 ist belegt durch GKFREX='63a6c688', Kunde='255521'. Suche wird mit 2026/103019 fortgesetzt.
+[2026-09-15 14:41:41] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103019 | AGKO-Nummernprüfung 2026/103019 | DryRun=False
+[2026-09-15 14:41:41] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103019': {"success":true,"data":[]}
+[2026-09-15 14:41:41] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103019': echte Datensätze in data[] = 0
+[2026-09-15 14:41:41] [DEBUG] AGKO-Nummernprüfung: 2026/103019 ist nicht vorhanden.
+[2026-09-15 14:41:41] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103019. Prüfversuche=4.
+[2026-09-15 14:41:41] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260915', Time='144141', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-15 14:41:41] [WARN] field_sales_id 'TEST' passt nicht in das dreistellige Feld GKSABE/GPSABE. Default 'TIK' wird verwendet.
+[2026-09-15 14:41:41] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-15 14:41:41] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260915'
+[2026-09-15 14:41:42] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='144141'
+[2026-09-15 14:41:42] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-15 14:41:42] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-15 14:41:42] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260915'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='144141'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-15 14:41:42] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-15 14:41:42] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c522_2026_103019.json
+[2026-09-15 14:41:42] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103019 / 63a6c522 | DryRun=False
+[2026-09-15 14:41:43] [DEBUG] API-Antwort bei 'AGKO 2026/103019 / 63a6c522': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-15 14:41:43] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103019 | AGKO-Nummernprüfung 2026/103019 | DryRun=False
+[2026-09-15 14:41:43] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103019': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260915","GKJZEI":"144141","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103019","GKAGNR":"103019","GKKDNR":"255521","GKSABE":"TIK","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260706","GKGBDA":"20260710","GKAGDA":"20260708","GKARF1":"WVO-gyEmRyn7","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c522"}]}
+[2026-09-15 14:41:43] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103019': echte Datensätze in data[] = 1
+[2026-09-15 14:41:43] [WARN] AGKO-Nummernprüfung: 2026/103019 existiert bereits. Kunde='255521'.
+[2026-09-15 14:41:43] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103019 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-15 14:41:43] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c522_2026_103019_10.json
+[2026-09-15 14:41:43] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103019 Pos=10 / 63a6c522 | DryRun=False
+[2026-09-15 14:41:43] [DEBUG] API-Antwort bei 'AGPO 2026/103019 Pos=10 / 63a6c522': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-15 14:41:43] [INFO] Angebot erfolgreich verarbeitet: 63a6c522 -> 2026/103019, Positionen=1
+[2026-09-15 14:41:43] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 08:41:37
+====================================================================================================
+[2026-09-16 08:41:37] [INFO] Start. Execute=False; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 08:41:37] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 08:41:37] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=True | VerifyHeaderAfterInsert=True
+[2026-09-16 08:41:37] [INFO] Verarbeite quote_unique_id=63a6c695, quote_number=WVO-122557, Positionen=1
+[2026-09-16 08:41:37] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 08:41:37] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-09-16 08:41:37] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-09-16 08:41:37] [DEBUG] DRY-RUN: GET wird nicht ausgeführt: http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016
+[2026-09-16 08:41:37] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-09-16 08:41:37] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260916', Time='084137', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-16 08:41:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-16 08:41:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260916'
+[2026-09-16 08:41:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='084137'
+[2026-09-16 08:41:38] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-16 08:41:38] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-16 08:41:38] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260916'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='084137'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-16 08:41:38] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-16 08:41:38] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c695_2026_103016.json
+[2026-09-16 08:41:38] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c695 | DryRun=True
+[2026-09-16 08:41:38] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c695_2026_103016_10.json
+[2026-09-16 08:41:38] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c695 | DryRun=True
+[2026-09-16 08:41:38] [INFO] Angebot erfolgreich verarbeitet: 63a6c695 -> 2026/103016, Positionen=1
+[2026-09-16 08:41:38] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 08:47:02
+====================================================================================================
+[2026-09-16 08:47:02] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 08:47:02] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 08:47:02] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 08:47:02] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 08:47:02] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 08:47:02] [INFO] Verarbeite quote_unique_id=63a6c695, quote_number=WVO-122557, Positionen=1
+[2026-09-16 08:47:02] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 08:47:02] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-09-16 08:47:02] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-09-16 08:47:02] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-16 08:47:02] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 08:47:03] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[]}
+[2026-09-16 08:47:03] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 0
+[2026-09-16 08:47:03] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-09-16 08:47:03] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260916', Time='084703', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-16 08:47:03] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-16 08:47:03] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260916'
+[2026-09-16 08:47:03] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='084703'
+[2026-09-16 08:47:03] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-16 08:47:03] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-16 08:47:03] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260916'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='084703'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-16 08:47:03] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-16 08:47:03] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c695_2026_103016.json
+[2026-09-16 08:47:03] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c695 | DryRun=False
+[2026-09-16 08:47:04] [DEBUG] API-Antwort bei 'AGKO 2026/103016 / 63a6c695': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 08:47:04] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 08:47:05] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"84703","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122557","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c695"}]}
+[2026-09-16 08:47:05] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-16 08:47:05] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-09-16 08:47:05] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103016 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-16 08:47:05] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c695_2026_103016_10.json
+[2026-09-16 08:47:05] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c695 | DryRun=False
+[2026-09-16 08:47:05] [DEBUG] API-Antwort bei 'AGPO 2026/103016 Pos=10 / 63a6c695': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 08:47:05] [INFO] Angebot erfolgreich verarbeitet: 63a6c695 -> 2026/103016, Positionen=1
+[2026-09-16 08:47:05] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 09:02:35
+====================================================================================================
+[2026-09-16 09:02:35] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 09:02:35] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 09:02:35] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 09:02:35] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 09:02:36] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 09:02:36] [INFO] Verarbeite quote_unique_id=63a6c696, quote_number=WVO-122558, Positionen=1
+[2026-09-16 09:02:36] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 09:02:36] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 255521 verwendet.
+[2026-09-16 09:02:36] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 4450017346 verwendet.
+[2026-09-16 09:02:36] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-16 09:02:36] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 09:02:37] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"84703","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122557","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c695"}]}
+[2026-09-16 09:02:37] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-16 09:02:37] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-09-16 09:02:37] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c695', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-09-16 09:02:37] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-09-16 09:02:37] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[]}
+[2026-09-16 09:02:37] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 0
+[2026-09-16 09:02:37] [DEBUG] AGKO-Nummernprüfung: 2026/103017 ist nicht vorhanden.
+[2026-09-16 09:02:37] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103017. Prüfversuche=2.
+[2026-09-16 09:02:37] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260916', Time='090237', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-16 09:02:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-16 09:02:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260916'
+[2026-09-16 09:02:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='090237'
+[2026-09-16 09:02:37] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-16 09:02:37] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-16 09:02:37] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260916'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='090237'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-16 09:02:37] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-16 09:02:37] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c696_2026_103017.json
+[2026-09-16 09:02:38] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103017 / 63a6c696 | DryRun=False
+[2026-09-16 09:02:38] [DEBUG] API-Antwort bei 'AGKO 2026/103017 / 63a6c696': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:02:38] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-09-16 09:02:39] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"90237","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122558","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c696"}]}
+[2026-09-16 09:02:39] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-09-16 09:02:39] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-09-16 09:02:39] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103017 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-16 09:02:39] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c696_2026_103017_10.json
+[2026-09-16 09:02:39] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103017 Pos=10 / 63a6c696 | DryRun=False
+[2026-09-16 09:02:39] [DEBUG] API-Antwort bei 'AGPO 2026/103017 Pos=10 / 63a6c696': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:02:39] [INFO] Angebot erfolgreich verarbeitet: 63a6c696 -> 2026/103017, Positionen=1
+[2026-09-16 09:02:39] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 09:06:55
+====================================================================================================
+[2026-09-16 09:06:55] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 09:06:55] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 09:06:55] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 09:06:55] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 09:06:55] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 09:06:55] [INFO] Verarbeite quote_unique_id=63a6c633, quote_number=WVO-122533, Positionen=1
+[2026-09-16 09:06:55] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 09:06:55] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 001330 verwendet.
+[2026-09-16 09:06:55] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 9600000038 verwendet.
+[2026-09-16 09:06:55] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-16 09:06:55] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 09:06:56] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"84703","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122557","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c695"}]}
+[2026-09-16 09:06:56] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-16 09:06:56] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-09-16 09:06:56] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c695', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-09-16 09:06:56] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-09-16 09:06:57] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"L","GKJNAM":"XCAL1282","GKJDAT":"20260916","GKJZEI":"90425","GKUSER":"LANGLITZT","GKPROG":"TRAGKO","GKBIBL":"TVPP","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122558","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c696"}]}
+[2026-09-16 09:06:57] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-09-16 09:06:57] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-09-16 09:06:57] [WARN] Test-Angebotsnummer 2026/103017 ist belegt durch GKFREX='63a6c696', Kunde='255521'. Suche wird mit 2026/103018 fortgesetzt.
+[2026-09-16 09:06:57] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-09-16 09:06:57] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[]}
+[2026-09-16 09:06:57] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 0
+[2026-09-16 09:06:57] [DEBUG] AGKO-Nummernprüfung: 2026/103018 ist nicht vorhanden.
+[2026-09-16 09:06:57] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103018. Prüfversuche=3.
+[2026-09-16 09:06:58] [DEBUG] Technische Laufzeitvorbelegung: JobName='APICAL', Date='20260916', Time='090658', User='DILA', DateMode='Current', TimeMode='Current'.
+[2026-09-16 09:06:58] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJNAM='APICAL'
+[2026-09-16 09:06:58] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJDAT='20260916'
+[2026-09-16 09:06:58] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKJZEI='090658'
+[2026-09-16 09:06:58] [DEBUG] AGKO-Laufzeitvorbelegung ergänzt: GKUSER='DILA'
+[2026-09-16 09:06:58] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKBIBL='TVPP1'
+[2026-09-16 09:06:58] [DEBUG] AGKO-Zusatzvorbelegung ergänzt: GKPROG='TRAGKO'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJNAM='APICAL'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJDAT='20260916'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPJZEI='090658'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Laufzeitvorbelegung ergänzt: GPUSER='DILA'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPAFKZ='J'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBIBL='TVPP'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPBOKZ='J'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPEMKZ='N'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPGSKZ='J'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPLTKZ='N'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPMWCD='16'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPPROG='TRAGPO'
+[2026-09-16 09:06:58] [DEBUG] AGPO-Zusatzvorbelegung Position 10 ergänzt: GPTXKZ='N'
+[2026-09-16 09:06:58] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c633_2026_103018.json
+[2026-09-16 09:06:58] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103018 / 63a6c633 | DryRun=False
+[2026-09-16 09:06:59] [DEBUG] API-Antwort bei 'AGKO 2026/103018 / 63a6c633': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:06:59] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-09-16 09:06:59] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"90658","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103018","GKAGNR":"103018","GKKDNR":"001330","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122533","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c633"}]}
+[2026-09-16 09:06:59] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 1
+[2026-09-16 09:06:59] [WARN] AGKO-Nummernprüfung: 2026/103018 existiert bereits. Kunde='001330'.
+[2026-09-16 09:06:59] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103018 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-16 09:06:59] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c633_2026_103018_10.json
+[2026-09-16 09:06:59] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103018 Pos=10 / 63a6c633 | DryRun=False
+[2026-09-16 09:07:00] [DEBUG] API-Antwort bei 'AGPO 2026/103018 Pos=10 / 63a6c633': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:07:00] [INFO] Angebot erfolgreich verarbeitet: 63a6c633 -> 2026/103018, Positionen=1
+[2026-09-16 09:07:00] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 09:42:45
+====================================================================================================
+[2026-09-16 09:42:45] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 09:42:45] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 09:42:45] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 09:42:45] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 09:42:45] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 09:42:45] [ERROR] Datei 'D:\Quotation\QuoteImport\incoming\sample-quotes.csv' fehlgeschlagen: Method invocation failed because [System.Decimal] does not contain a method named 'Abs'.
+====================================================================================================
+RUN START: 2026-09-16 09:44:48
+====================================================================================================
+[2026-09-16 09:44:48] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 09:44:48] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 09:44:48] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 09:44:48] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 09:44:48] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 09:44:48] [DEBUG] Mapping GPKOW1: CSV 'discount' fehlt/leer; Vorbelegung wird aufgeloest.
+[2026-09-16 09:44:48] [INFO] Verarbeite quote_unique_id=63a6c635, quote_number=WVO-122535, Positionen=1
+[2026-09-16 09:44:48] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 09:44:48] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 001330 verwendet.
+[2026-09-16 09:44:48] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 9600000038 verwendet.
+[2026-09-16 09:44:48] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-16 09:44:48] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 09:44:49] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"84703","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122557","GKARF2":"","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c695"}]}
+[2026-09-16 09:44:49] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-16 09:44:49] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='255521'.
+[2026-09-16 09:44:49] [WARN] Test-Angebotsnummer 2026/103016 ist belegt durch GKFREX='63a6c695', Kunde='255521'. Suche wird mit 2026/103017 fortgesetzt.
+[2026-09-16 09:44:49] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103017 | AGKO-Nummernprüfung 2026/103017 | DryRun=False
+[2026-09-16 09:44:50] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103017': {"success":true,"data":[{"GKLOCK":"L","GKJNAM":"XCAL1282","GKJDAT":"20260916","GKJZEI":"90425","GKUSER":"LANGLITZT","GKPROG":"TRAGKO","GKBIBL":"TVPP","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103017","GKAGNR":"103017","GKKDNR":"255521","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122558","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c696"}]}
+[2026-09-16 09:44:50] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103017': echte Datensätze in data[] = 1
+[2026-09-16 09:44:50] [WARN] AGKO-Nummernprüfung: 2026/103017 existiert bereits. Kunde='255521'.
+[2026-09-16 09:44:50] [WARN] Test-Angebotsnummer 2026/103017 ist belegt durch GKFREX='63a6c696', Kunde='255521'. Suche wird mit 2026/103018 fortgesetzt.
+[2026-09-16 09:44:50] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103018 | AGKO-Nummernprüfung 2026/103018 | DryRun=False
+[2026-09-16 09:44:50] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103018': {"success":true,"data":[{"GKLOCK":"L","GKJNAM":"XCAL1377","GKJDAT":"20260916","GKJZEI":"90747","GKUSER":"LANGLITZT","GKPROG":"TRAGKO","GKBIBL":"TVPP","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103018","GKAGNR":"103018","GKKDNR":"001330","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122533","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c633"}]}
+[2026-09-16 09:44:50] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103018': echte Datensätze in data[] = 1
+[2026-09-16 09:44:50] [WARN] AGKO-Nummernprüfung: 2026/103018 existiert bereits. Kunde='001330'.
+[2026-09-16 09:44:50] [WARN] Test-Angebotsnummer 2026/103018 ist belegt durch GKFREX='63a6c633', Kunde='001330'. Suche wird mit 2026/103019 fortgesetzt.
+[2026-09-16 09:44:50] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103019 | AGKO-Nummernprüfung 2026/103019 | DryRun=False
+[2026-09-16 09:44:51] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103019': {"success":true,"data":[]}
+[2026-09-16 09:44:51] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103019': echte Datensätze in data[] = 0
+[2026-09-16 09:44:51] [DEBUG] AGKO-Nummernprüfung: 2026/103019 ist nicht vorhanden.
+[2026-09-16 09:44:51] [INFO] Nächste freie Test-Angebotsnummer gefunden: 2026/103019. Prüfversuche=4.
+[2026-09-16 09:44:51] [DEBUG] Technische Laufzeitvorbelegung: JobName='', Date='20260916', Time='094451', User='', DateMode='Current', TimeMode='Current'.
+[2026-09-16 09:44:51] [DEBUG] Mapping GKLOCK <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKJNAM <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKJDAT <- Runtime.Date; Typ=Date
+[2026-09-16 09:44:51] [DEBUG] Mapping GKJZEI <- Runtime.Time; Typ=Time
+[2026-09-16 09:44:51] [DEBUG] Mapping GKUSER <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKPROG <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKBIBL <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKFIRM <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGAR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGJJ <- Number.Year; Typ=Int
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGNN <- Number.Number; Typ=Int
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGNR <- Number.Number; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKKDNR <- Csv.customer_number; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKSABE <- Csv.field_sales_id; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKWKNR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKABTL <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKABAR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKWACD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGST <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKGADA <- Csv.valid_from; Typ=Date
+[2026-09-16 09:44:51] [DEBUG] Mapping GKGBDA <- Csv.valid_to; Typ=Date
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAGDA <- Csv.quote_date; Typ=Date
+[2026-09-16 09:44:51] [DEBUG] Mapping GKARF1 <- Csv.quote_number; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKARF2 <- Csv.reference_2; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVSBD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKLIBD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKZABD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVPEI <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKAAGR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKPJNR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKPSLI <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKLFTG <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:51] [DEBUG] Mapping GKLVZA <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKSPCD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKWVDA <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:51] [DEBUG] Mapping GKKOND <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVTN1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVTN2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVTN3 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKLNKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKTLKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKVSNR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKFRIN <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GKFREX <- Csv.quote_unique_id; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GPLOCK <- Vorbelegung; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GPJNAM <- Header.GKJNAM; Typ=String
+[2026-09-16 09:44:51] [DEBUG] Mapping GPJDAT <- Header.GKJDAT; Typ=Date
+[2026-09-16 09:44:52] [DEBUG] Mapping GPJZEI <- Header.GKJZEI; Typ=Time
+[2026-09-16 09:44:52] [DEBUG] Mapping GPUSER <- Header.GKUSER; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPROG <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBIBL <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPFIRM <- Header.GKFIRM; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKDNR <- Header.GKKDNR; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGJJ <- Header.GKAGJJ; Typ=Int
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGNR <- Header.GKAGNR; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGPO <- Position.Number; Typ=Int
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGAR <- Header.GKAGAR; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPWKNR <- Header.GKWKNR; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPABTL <- Header.GKABTL; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPSABE <- Header.GKSABE; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPABAR <- Header.GKABAR; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPWACD <- Header.GKWACD; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGST <- Header.GKAGST; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPGADA <- Header.GKGADA; Typ=Date
+[2026-09-16 09:44:52] [DEBUG] Mapping GPGBDA <- Header.GKGBDA; Typ=Date
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTENR <- Csv.article_number; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPMENG <- Csv.quantity; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPLFKW <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:52] [DEBUG] Mapping GPLFTG <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTBZ1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTBZ2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPMEIN <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPMEPR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPUFK1 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPUFK2 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBOKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTXKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPGBGR <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPJASZ <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPRFG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTLWN <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPTLKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBSMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPGLMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKURS <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKUPD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBRMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPQSMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAEDA <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPRAR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPREI <- Csv.gross_unit_price; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAFWT <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPZSWT <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPAGPR <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPDIM <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKON1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKOW1 <- Csv.discount; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPRZ1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPDI1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBAS1 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKON2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKOW2 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPRZ2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPDI2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPBAS2 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKON3 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPKOW3 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPRZ3 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:52] [DEBUG] Mapping GPPDI3 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPBAS3 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKON4 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKOW4 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPPRZ4 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPPDI4 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPBAS4 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKON5 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKOW5 <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPPRZ5 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPPDI5 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPBAS5 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPLVZA <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPZWSU <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPEMKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKZ05 <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPAGDA <- Header.GKAGDA; Typ=Date
+[2026-09-16 09:44:53] [DEBUG] Mapping GPMEFK <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPLFTE <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:53] [DEBUG] Mapping GPLFJK <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:53] [DEBUG] Mapping GPLFTA <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPNU03 <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:53] [DEBUG] Mapping GPDA05 <- Vorbelegung; Typ=Int
+[2026-09-16 09:44:53] [DEBUG] Mapping GPNRMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPAFKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPPRGR <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPMWCD <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPLTKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPGSKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPFKTR <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPABGR <- Vorbelegung; Typ=Decimal
+[2026-09-16 09:44:53] [DEBUG] Mapping GPDIEK <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPDSKZ <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPDSDF <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPKDSU <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPFRIN <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] Mapping GPFREX <- Vorbelegung; Typ=String
+[2026-09-16 09:44:53] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c635_2026_103019.json
+[2026-09-16 09:44:53] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103019 / 63a6c635 | DryRun=False
+[2026-09-16 09:44:54] [DEBUG] API-Antwort bei 'AGKO 2026/103019 / 63a6c635': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:44:54] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103019 | AGKO-Nummernprüfung 2026/103019 | DryRun=False
+[2026-09-16 09:44:54] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103019': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"94451","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103019","GKAGNR":"103019","GKKDNR":"001330","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122535","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c635"}]}
+[2026-09-16 09:44:54] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103019': echte Datensätze in data[] = 1
+[2026-09-16 09:44:54] [WARN] AGKO-Nummernprüfung: 2026/103019 existiert bereits. Kunde='001330'.
+[2026-09-16 09:44:54] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103019 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-16 09:44:54] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c635_2026_103019_10.json
+[2026-09-16 09:44:54] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103019 Pos=10 / 63a6c635 | DryRun=False
+[2026-09-16 09:44:55] [DEBUG] API-Antwort bei 'AGPO 2026/103019 Pos=10 / 63a6c635': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 09:44:55] [INFO] Angebot erfolgreich verarbeitet: 63a6c635 -> 2026/103019, Positionen=1
+[2026-09-16 09:44:55] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0
+====================================================================================================
+RUN START: 2026-09-16 10:56:55
+====================================================================================================
+[2026-09-16 10:56:55] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 10:56:55] [INFO] Keine Eingabedatei passend zu '*.csv' gefunden.
+====================================================================================================
+RUN START: 2026-09-16 10:57:03
+====================================================================================================
+[2026-09-16 10:57:03] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 10:57:03] [INFO] Keine Eingabedatei passend zu '*.csv' gefunden.
+====================================================================================================
+RUN START: 2026-09-16 10:57:42
+====================================================================================================
+[2026-09-16 10:57:42] [INFO] Start. Execute=True; SkipSftp=True; Mapping=D:\Quotation\config\QuoteImport.mapping.psd1
+[2026-09-16 10:57:42] [WARN] KONTROLLIERTER TESTTABELLEN-SCHREIBMODUS: API testMode=false, Zieltabellen TVPFTEST.AGKO und TVPFTEST.AGPO, fester Nummernkreis ausdrücklich freigegeben.
+[2026-09-16 10:57:42] [DEBUG] API-Endpunkte: HeaderSelectUrl=http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select | ExternalReferenceSelectUrl= | SqlSelectUrl= | AddUrl=http://localhost:8085/api/ibmi/s105dd7a/add
+[2026-09-16 10:57:42] [INFO] CSV-Import startet: D:\Quotation\QuoteImport\incoming\sample-quotes.csv | Header=TVPFTEST.AGKO | Position=TVPFTEST.AGPO | TestMode=False | DryRun=False | VerifyHeaderAfterInsert=True
+[2026-09-16 10:57:42] [WARN] ECHTER API-SCHREIBMODUS: Der Request enthält "testMode":false. Die im Payload genannten Tabellen werden tatsächlich beschrieben, sofern die API den INSERT akzeptiert.
+[2026-09-16 10:57:42] [DEBUG] Mapping GPKOW1: CSV 'discount' fehlt/leer; Vorbelegung wird aufgeloest.
+[2026-09-16 10:57:42] [INFO] Verarbeite quote_unique_id=63a6c636, quote_number=WVO-122536, Positionen=1
+[2026-09-16 10:57:43] [WARN] Keine externe-ID-Prüfung für GKFREX ausgeführt: Api.ExternalReferenceSelectUrl ist nicht konfiguriert. AGKO_select unterstützt nur GKAGJJ/GKAGNR.
+[2026-09-16 10:57:43] [WARN] Kein Kundenstamm-Query konfiguriert. Fallbackwerte werden für Kunde 001330 verwendet.
+[2026-09-16 10:57:43] [WARN] Kein Artikelstamm-Query konfiguriert. Fallbackwerte werden für Artikel 9600000038 verwendet.
+[2026-09-16 10:57:43] [WARN] SICHERHEITSHINWEIS: Fester Nummernkreis wird bei Execute=True und Api.TestMode=False verwendet. Dies ist ausschließlich für einen kontrollierten Testtabellen-Import zulässig.
+[2026-09-16 10:57:43] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 10:57:43] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[]}
+[2026-09-16 10:57:43] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 0
+[2026-09-16 10:57:43] [DEBUG] AGKO-Nummernprüfung: 2026/103016 ist nicht vorhanden.
+[2026-09-16 10:57:44] [DEBUG] Technische Laufzeitvorbelegung: JobName='', Date='20260916', Time='105744', User='', DateMode='Current', TimeMode='Current'.
+[2026-09-16 10:57:44] [DEBUG] Mapping GKLOCK <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKJNAM <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKJDAT <- Runtime.Date; Typ=Date
+[2026-09-16 10:57:44] [DEBUG] Mapping GKJZEI <- Runtime.Time; Typ=Time
+[2026-09-16 10:57:44] [DEBUG] Mapping GKUSER <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKPROG <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKBIBL <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKFIRM <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGAR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGJJ <- Number.Year; Typ=Int
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGNN <- Number.Number; Typ=Int
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGNR <- Number.Number; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKKDNR <- Csv.customer_number; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKSABE <- Csv.field_sales_id; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKWKNR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKABTL <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKABAR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKWACD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGST <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKGADA <- Csv.valid_from; Typ=Date
+[2026-09-16 10:57:44] [DEBUG] Mapping GKGBDA <- Csv.valid_to; Typ=Date
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAGDA <- Csv.quote_date; Typ=Date
+[2026-09-16 10:57:44] [DEBUG] Mapping GKARF1 <- Csv.quote_number; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKARF2 <- Csv.reference_2; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVSBD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKLIBD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKZABD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVPEI <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKAAGR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKPJNR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKPSLI <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKLFTG <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:44] [DEBUG] Mapping GKLVZA <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKSPCD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKWVDA <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:44] [DEBUG] Mapping GKKOND <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVTN1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVTN2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVTN3 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKLNKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKTLKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKVSNR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKFRIN <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GKFREX <- Csv.quote_unique_id; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPLOCK <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPJNAM <- Header.GKJNAM; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPJDAT <- Header.GKJDAT; Typ=Date
+[2026-09-16 10:57:44] [DEBUG] Mapping GPJZEI <- Header.GKJZEI; Typ=Time
+[2026-09-16 10:57:44] [DEBUG] Mapping GPUSER <- Header.GKUSER; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPPROG <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPBIBL <- Vorbelegung; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPFIRM <- Header.GKFIRM; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPKDNR <- Header.GKKDNR; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPAGJJ <- Header.GKAGJJ; Typ=Int
+[2026-09-16 10:57:44] [DEBUG] Mapping GPAGNR <- Header.GKAGNR; Typ=String
+[2026-09-16 10:57:44] [DEBUG] Mapping GPAGPO <- Position.Number; Typ=Int
+[2026-09-16 10:57:45] [DEBUG] Mapping GPAGAR <- Header.GKAGAR; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPWKNR <- Header.GKWKNR; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPABTL <- Header.GKABTL; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPSABE <- Header.GKSABE; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPABAR <- Header.GKABAR; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPWACD <- Header.GKWACD; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPAGST <- Header.GKAGST; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPGADA <- Header.GKGADA; Typ=Date
+[2026-09-16 10:57:45] [DEBUG] Mapping GPGBDA <- Header.GKGBDA; Typ=Date
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTENR <- Csv.article_number; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPMENG <- Csv.quantity; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPLFKW <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:45] [DEBUG] Mapping GPLFTG <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTBZ1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTBZ2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPMEIN <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPMEPR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPUFK1 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPUFK2 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBOKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTXKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPGBGR <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPJASZ <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRFG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTLWN <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPTLKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBSMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPGLMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKURS <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKUPD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBRMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPQSMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPAEDA <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRAR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPREI <- Csv.gross_unit_price; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPAFWT <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPZSWT <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPAGPR <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPDIM <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKON1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKOW1 <- Csv.discount; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRZ1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPDI1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBAS1 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKON2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKOW2 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRZ2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPDI2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBAS2 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKON3 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKOW3 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRZ3 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPDI3 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBAS3 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKON4 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKOW4 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPRZ4 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPPDI4 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPBAS4 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKON5 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:45] [DEBUG] Mapping GPKOW5 <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:46] [DEBUG] Mapping GPPRZ5 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPPDI5 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPBAS5 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPLVZA <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPZWSU <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPEMKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPKZ05 <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPAGDA <- Header.GKAGDA; Typ=Date
+[2026-09-16 10:57:46] [DEBUG] Mapping GPMEFK <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:46] [DEBUG] Mapping GPLFTE <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:46] [DEBUG] Mapping GPLFJK <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:46] [DEBUG] Mapping GPLFTA <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPNU03 <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:46] [DEBUG] Mapping GPDA05 <- Vorbelegung; Typ=Int
+[2026-09-16 10:57:46] [DEBUG] Mapping GPNRMG <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:46] [DEBUG] Mapping GPAFKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPPRGR <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPMWCD <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPLTKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPGSKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPFKTR <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:46] [DEBUG] Mapping GPABGR <- Vorbelegung; Typ=Decimal
+[2026-09-16 10:57:46] [DEBUG] Mapping GPDIEK <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPDSKZ <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPDSDF <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPKDSU <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPFRIN <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] Mapping GPFREX <- Vorbelegung; Typ=String
+[2026-09-16 10:57:46] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGKO_63a6c636_2026_103016.json
+[2026-09-16 10:57:46] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGKO 2026/103016 / 63a6c636 | DryRun=False
+[2026-09-16 10:57:47] [DEBUG] API-Antwort bei 'AGKO 2026/103016 / 63a6c636': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 10:57:47] [DEBUG] API GET http://az16emsapp01.dometic.internal:8085/api/services/AGKO_select?GKAGJJ=2026&GKAGNR=103016 | AGKO-Nummernprüfung 2026/103016 | DryRun=False
+[2026-09-16 10:57:47] [DEBUG] API-Antwort bei 'AGKO-Nummernprüfung 2026/103016': {"success":true,"data":[{"GKLOCK":"","GKJNAM":"APICAL","GKJDAT":"20260916","GKJZEI":"105744","GKUSER":"DILA","GKPROG":"TRAGKO","GKBIBL":"TVPP1","GKFIRM":"01","GKAGAR":"150","GKAGJJ":"2026","GKAGNN":"103016","GKAGNR":"103016","GKKDNR":"001330","GKSABE":"TST","GKWKNR":"001","GKABTL":"VK","GKABAR":"D","GKWACD":"EUR","GKAGST":"00","GKGADA":"20260916","GKGBDA":"20260925","GKAGDA":"20260916","GKARF1":"WVO-122536","GKARF2":"reference_2","GKVSBD":"220","GKLIBD":"060","GKZABD":"012","GKVPEI":"","GKAAGR":"","GKPJNR":"","GKPSLI":"","GKLFTG":"0","GKLVZA":"","GKSPCD":"D","GKWVDA":"0","GKKOND":"J","GKVTN1":"","GKVTN2":"","GKVTN3":"","GKLNKZ":"","GKTLKZ":"N","GKVSNR":"","GKFRIN":"","GKFREX":"63a6c636"}]}
+[2026-09-16 10:57:47] [DEBUG] GET-SELECT 'AGKO-Nummernprüfung 2026/103016': echte Datensätze in data[] = 1
+[2026-09-16 10:57:47] [WARN] AGKO-Nummernprüfung: 2026/103016 existiert bereits. Kunde='001330'.
+[2026-09-16 10:57:47] [INFO] AGKO-Nachkontrolle erfolgreich: 2026/103016 ist in der Tabelle vorhanden. Versuch=1/3.
+[2026-09-16 10:57:47] [DEBUG] JSON-Dump: D:\Quotation\QuoteImport\request-dumps\AGPO_63a6c636_2026_103016_10.json
+[2026-09-16 10:57:47] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | AGPO 2026/103016 Pos=10 / 63a6c636 | DryRun=False
+[2026-09-16 10:57:47] [DEBUG] API-Antwort bei 'AGPO 2026/103016 Pos=10 / 63a6c636': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-16 10:57:48] [INFO] Angebot erfolgreich verarbeitet: 63a6c636 -> 2026/103016, Positionen=1
+[2026-09-16 10:57:48] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Fehler=0

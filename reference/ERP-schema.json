@@ -1,0 +1,1190 @@
+{
+  "AGKO": [
+    {
+      "field": "GKLOCK",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Satz-Sperre",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKJNAM",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Ltz.Änd.Job-Na",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKJDAT",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "label": "Ltz.Änd.JobDat",
+      "ccsid": null
+    },
+    {
+      "field": "GKJZEI",
+      "sqlType": "NUMERIC",
+      "length": 6,
+      "scale": 0,
+      "label": "Ltz.Änd.Job-Zt",
+      "ccsid": null
+    },
+    {
+      "field": "GKUSER",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Ltz.Änd.User",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKPROG",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Ltz.Änd.Prog",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKBIBL",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Ltz.Änd.Bibl",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKFIRM",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "label": "Firmen-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKAGAR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Vertrags-Art",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKAGJJ",
+      "sqlType": "NUMERIC",
+      "length": 4,
+      "scale": 0,
+      "label": "Vertrag-Jahr",
+      "ccsid": null
+    },
+    {
+      "field": "GKAGNN",
+      "sqlType": "NUMERIC",
+      "length": 6,
+      "scale": 0,
+      "label": "Vertrags-Nr",
+      "ccsid": null
+    },
+    {
+      "field": "GKAGNR",
+      "sqlType": "CHAR",
+      "length": 6,
+      "scale": 0,
+      "label": "Vertrags-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKKDNR",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Kunden-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKSABE",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Sachbearbeiter",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKWKNR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Werks-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKABTL",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Abteilung",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKABAR",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Ausgabe-Art",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKWACD",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Währungs-Code",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKAGST",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "label": "Status",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKGADA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "label": "Gültig-ab",
+      "ccsid": null
+    },
+    {
+      "field": "GKGBDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "label": "Gültig-bis",
+      "ccsid": null
+    },
+    {
+      "field": "GKAGDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "label": "Vertrags-Datum",
+      "ccsid": null
+    },
+    {
+      "field": "GKARF1",
+      "sqlType": "CHAR",
+      "length": 30,
+      "scale": 0,
+      "label": "Referenz-1",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKARF2",
+      "sqlType": "CHAR",
+      "length": 30,
+      "scale": 0,
+      "label": "Referenz-2",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVSBD",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Versand-Bed",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKLIBD",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Liefer-Bed",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKZABD",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Zahlungs-Bed",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVPEI",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Verp-Bedingung",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKAAGR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "KD-Af-Art-Grp",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKPJNR",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Projekt-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKPSLI",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "label": "Preis-Liste",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKLFTG",
+      "sqlType": "NUMERIC",
+      "length": 3,
+      "scale": 0,
+      "label": "Vorlauf-Zeit",
+      "ccsid": null
+    },
+    {
+      "field": "GKLVZA",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Zeit-Basis",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKSPCD",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Sprach-Code",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKWVDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "label": "Wiedervorlage",
+      "ccsid": null
+    },
+    {
+      "field": "GKKOND",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Kond.drucken",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVTN1",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Vertreter-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVTN2",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Vertreter-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVTN3",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "label": "Vertreter-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKLNKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Lotus-Notes",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKTLKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "label": "Lief.Komplett",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKVSNR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "label": "Versand-Adr-Nr",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKFRIN",
+      "sqlType": "CHAR",
+      "length": 15,
+      "scale": 0,
+      "label": "Freifeld-int",
+      "ccsid": 1141
+    },
+    {
+      "field": "GKFREX",
+      "sqlType": "CHAR",
+      "length": 20,
+      "scale": 0,
+      "label": "Freifeld-ext",
+      "ccsid": 1141
+    }
+  ],
+  "AGPO": [
+    {
+      "field": "GPLOCK",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Satz-Sperre"
+    },
+    {
+      "field": "GPJNAM",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ltz.Änd.Job-Na"
+    },
+    {
+      "field": "GPJDAT",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Ltz.Änd.JobDat"
+    },
+    {
+      "field": "GPJZEI",
+      "sqlType": "NUMERIC",
+      "length": 6,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Ltz.Änd.Job-Zt"
+    },
+    {
+      "field": "GPUSER",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ltz.Änd. User"
+    },
+    {
+      "field": "GPPROG",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ltz.Änd. Prog"
+    },
+    {
+      "field": "GPBIBL",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ltz. Änd. Bibl"
+    },
+    {
+      "field": "GPFIRM",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Firmen-Nr"
+    },
+    {
+      "field": "GPKDNR",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kunden-Nr"
+    },
+    {
+      "field": "GPAGJJ",
+      "sqlType": "NUMERIC",
+      "length": 4,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Vertrag Jahr"
+    },
+    {
+      "field": "GPAGNR",
+      "sqlType": "CHAR",
+      "length": 6,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Vertrags-Nr"
+    },
+    {
+      "field": "GPAGPO",
+      "sqlType": "NUMERIC",
+      "length": 4,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Vertrags-Pos"
+    },
+    {
+      "field": "GPAGAR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Vertrags-Art"
+    },
+    {
+      "field": "GPWKNR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Werks-Nr"
+    },
+    {
+      "field": "GPABTL",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Abteilung"
+    },
+    {
+      "field": "GPSABE",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Disponent"
+    },
+    {
+      "field": "GPABAR",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ausgabe-Art"
+    },
+    {
+      "field": "GPWACD",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Währungs-Code"
+    },
+    {
+      "field": "GPAGST",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Status"
+    },
+    {
+      "field": "GPGADA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Gültig ab"
+    },
+    {
+      "field": "GPGBDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Gültig bis"
+    },
+    {
+      "field": "GPTENR",
+      "sqlType": "CHAR",
+      "length": 15,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ident-Nr"
+    },
+    {
+      "field": "GPMENG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Bestell-Menge"
+    },
+    {
+      "field": "GPLFKW",
+      "sqlType": "NUMERIC",
+      "length": 2,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Liefer-Woche"
+    },
+    {
+      "field": "GPLFTG",
+      "sqlType": "NUMERIC",
+      "length": 3,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Vorlauf-Zeit"
+    },
+    {
+      "field": "GPTBZ1",
+      "sqlType": "CHAR",
+      "length": 30,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Bezeichnung 1"
+    },
+    {
+      "field": "GPTBZ2",
+      "sqlType": "CHAR",
+      "length": 30,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Bezeichnung 2"
+    },
+    {
+      "field": "GPMEIN",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Mengen-Einheit"
+    },
+    {
+      "field": "GPMEPR",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "ME Preis"
+    },
+    {
+      "field": "GPUFK1",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 4,
+      "ccsid": null,
+      "label": "Faktor"
+    },
+    {
+      "field": "GPUFK2",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 4,
+      "ccsid": null,
+      "label": "Faktor"
+    },
+    {
+      "field": "GPBOKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Bonus"
+    },
+    {
+      "field": "GPTXKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Text"
+    },
+    {
+      "field": "GPGBGR",
+      "sqlType": "NUMERIC",
+      "length": 7,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Gebinde-Größe"
+    },
+    {
+      "field": "GPJASZ",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Jahreszahl"
+    },
+    {
+      "field": "GPPRFG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Prod-Freigabe"
+    },
+    {
+      "field": "GPWAWT",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Warenwert"
+    },
+    {
+      "field": "GPTLWN",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Freifeld"
+    },
+    {
+      "field": "GPTLKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Freifeld"
+    },
+    {
+      "field": "GPBSMG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Bestell-Menge"
+    },
+    {
+      "field": "GPGLMG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Liefer-Menge"
+    },
+    {
+      "field": "GPKURS",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 6,
+      "ccsid": null,
+      "label": "Kurs"
+    },
+    {
+      "field": "GPKUPD",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kurs-Dimension"
+    },
+    {
+      "field": "GPBRMG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Berechn. Menge"
+    },
+    {
+      "field": "GPQSMG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "QS-Menge"
+    },
+    {
+      "field": "GPAEDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Änderungs-Dat"
+    },
+    {
+      "field": "GPPRAR",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Preis-Art"
+    },
+    {
+      "field": "GPPREI",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 3,
+      "ccsid": null,
+      "label": "Einzel-Preis"
+    },
+    {
+      "field": "GPNESU",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Netto-Summe"
+    },
+    {
+      "field": "GPAFWT",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Ausführ-Wert"
+    },
+    {
+      "field": "GPZSWT",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Zuschlags-Wert"
+    },
+    {
+      "field": "GPAGPR",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Angebots-Preis"
+    },
+    {
+      "field": "GPPDIM",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Preis-Dim"
+    },
+    {
+      "field": "GPKON1",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Art"
+    },
+    {
+      "field": "GPKOW1",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Kond-Wert"
+    },
+    {
+      "field": "GPPRZ1",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Prozent"
+    },
+    {
+      "field": "GPPDI1",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Dim"
+    },
+    {
+      "field": "GPBAS1",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kond-Basis"
+    },
+    {
+      "field": "GPKON2",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Art"
+    },
+    {
+      "field": "GPKOW2",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Kond-Wert"
+    },
+    {
+      "field": "GPPRZ2",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Prozent"
+    },
+    {
+      "field": "GPPDI2",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Dim"
+    },
+    {
+      "field": "GPBAS2",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kond-Basis"
+    },
+    {
+      "field": "GPKON3",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Art"
+    },
+    {
+      "field": "GPKOW3",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Kond-Wert"
+    },
+    {
+      "field": "GPPRZ3",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Prozent"
+    },
+    {
+      "field": "GPPDI3",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Dim"
+    },
+    {
+      "field": "GPBAS3",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kond-Basis"
+    },
+    {
+      "field": "GPKON4",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Art"
+    },
+    {
+      "field": "GPKOW4",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Kond-Wert"
+    },
+    {
+      "field": "GPPRZ4",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Prozent"
+    },
+    {
+      "field": "GPPDI4",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Dim"
+    },
+    {
+      "field": "GPBAS4",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kond-Basis"
+    },
+    {
+      "field": "GPKON5",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Art"
+    },
+    {
+      "field": "GPKOW5",
+      "sqlType": "NUMERIC",
+      "length": 9,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Kond-Wert"
+    },
+    {
+      "field": "GPPRZ5",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Prozent"
+    },
+    {
+      "field": "GPPDI5",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Konditions-Dim"
+    },
+    {
+      "field": "GPBAS5",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kond-Basis"
+    },
+    {
+      "field": "GPLVZA",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Zeit-Basis"
+    },
+    {
+      "field": "GPZWSU",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Zwischensumme"
+    },
+    {
+      "field": "GPEMKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Edelmetall"
+    },
+    {
+      "field": "GPKZ05",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Kz.Frei 05"
+    },
+    {
+      "field": "GPAGDA",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Vertrags-Datum"
+    },
+    {
+      "field": "GPURPR",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Ursprungs-Pr"
+    },
+    {
+      "field": "GPMEFK",
+      "sqlType": "NUMERIC",
+      "length": 5,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Melde-Faktor"
+    },
+    {
+      "field": "GPLFTE",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Liefer-Termin"
+    },
+    {
+      "field": "GPLFJK",
+      "sqlType": "NUMERIC",
+      "length": 4,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Liefer-Jahr/KW"
+    },
+    {
+      "field": "GPLFTA",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Anliefer-Tag"
+    },
+    {
+      "field": "GPNU03",
+      "sqlType": "NUMERIC",
+      "length": 3,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Freifeld"
+    },
+    {
+      "field": "GPDA05",
+      "sqlType": "NUMERIC",
+      "length": 8,
+      "scale": 0,
+      "ccsid": null,
+      "label": "Datum Frei 05"
+    },
+    {
+      "field": "GPNRMG",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Natural-Rabatt"
+    },
+    {
+      "field": "GPAFKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "KD-Auftrags-Kz"
+    },
+    {
+      "field": "GPPRGR",
+      "sqlType": "CHAR",
+      "length": 4,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Produkt-Gruppe"
+    },
+    {
+      "field": "GPMWCD",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "MwSt-Code"
+    },
+    {
+      "field": "GPLTKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Langtext-Kz"
+    },
+    {
+      "field": "GPGSKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Ges-Summe-Kz"
+    },
+    {
+      "field": "GPFKTR",
+      "sqlType": "NUMERIC",
+      "length": 4,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Faktor"
+    },
+    {
+      "field": "GPABGR",
+      "sqlType": "NUMERIC",
+      "length": 11,
+      "scale": 2,
+      "ccsid": null,
+      "label": "Abruf-Größe"
+    },
+    {
+      "field": "GPDIEK",
+      "sqlType": "CHAR",
+      "length": 3,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Disponent EK"
+    },
+    {
+      "field": "GPDSKZ",
+      "sqlType": "CHAR",
+      "length": 1,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Duales System"
+    },
+    {
+      "field": "GPDSDF",
+      "sqlType": "CHAR",
+      "length": 2,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "DSD-Differenz."
+    },
+    {
+      "field": "GPKDSU",
+      "sqlType": "CHAR",
+      "length": 10,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Sub-KD-Nr"
+    },
+    {
+      "field": "GPFRIN",
+      "sqlType": "CHAR",
+      "length": 7,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Freifeld int"
+    },
+    {
+      "field": "GPFREX",
+      "sqlType": "CHAR",
+      "length": 20,
+      "scale": 0,
+      "ccsid": 273,
+      "label": "Freifeld ext"
+    }
+  ]
+}

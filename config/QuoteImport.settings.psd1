@@ -1,4 +1,4 @@
-@{
+﻿@{
     SchemaVersion = '1.0'
 
     Dependencies = @{
@@ -30,22 +30,13 @@
         PromptForBearerToken = $false
     }
 
+    # Fachliche Vorbelegungen stehen jetzt ausschliesslich in mapping.psd1 / Erp.
     Defaults = @{
-        Company = '01'; DocumentType = '150'; Responsible = 'TIK'
-        Plant = '001'; Department = 'VK'; OutputType = 'D'; Status = '00'
-        PrintConditions = 'J'; CompleteDelivery = 'N'
         CustomerNumberMinimumLength = 6
-        PriceType = 'AKD'; PriceDimension = '1'
-        ConditionType = 'RA5'; ConditionIsPercent = 'J'
         TechnicalRuntimeFields = @{
-            Enabled = $true; JobName = 'APICAL'; User = 'DILA'
-            DateMode = 'Current'; FixedDate = '20260722'
-            TimeMode = 'Current'; FixedTime = '155924'
-        }
-        AdditionalHeaderFields = @{ GKPROG = 'TRAGKO'; GKBIBL = 'TVPP1' }
-        AdditionalPositionFields = @{
-            GPPROG = 'TRAGPO'; GPBIBL = 'TVPP'; GPBOKZ = 'J'; GPTXKZ = 'N'
-            GPEMKZ = 'N'; GPAFKZ = 'J'; GPMWCD = '16'; GPLTKZ = 'N'; GPGSKZ = 'J'
+            Enabled = $true
+            DateMode = 'Current'; FixedDate = '20260916'
+            TimeMode = 'Current'; FixedTime = '090658'
         }
     }
 
@@ -57,13 +48,8 @@
 
     MasterData = @{
         Strict = $false; CustomerQueryTemplate = ''; ArticleQueryTemplate = ''
-        CustomerFallback = @{
-            CurrencyCode = 'EUR'; ShippingCondition = '220'; DeliveryCondition = '060'
-            PaymentCondition = '012'; LanguageCode = 'D'
-        }
-        ArticleFallback = @{
-            Description1 = ''; Description2 = ''; QuantityUnit = 'S'; PriceUnit = 'S'
-        }
+        CustomerFallback = @{} # ERP-Fallbacks stehen im Mapping.
+        ArticleFallback = @{}
     }
 
     Sftp = @{

@@ -1,0 +1,6 @@
+﻿====================================================================================================
+RUN START: 2026-09-29 16:23:54
+====================================================================================================
+[2026-09-29 16:23:54] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-09-29 16:23:54] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-29 16:23:54] [INFO] Keine CSV-Dateien gefunden.

@@ -8,6 +8,9 @@ if ([string]::IsNullOrWhiteSpace($ConfigPath)) {
     $ConfigPath = Join-Path $root 'WorkistIF.config.psd1'
 }
 
+Set-StrictMode -Version Latest
+$ErrorActionPreference = 'Stop'
+
 Import-Module (Join-Path $root 'WorkistIF.Common.psm1') -Force -DisableNameChecking
 
 $config = Import-PowerShellDataFile -LiteralPath $ConfigPath

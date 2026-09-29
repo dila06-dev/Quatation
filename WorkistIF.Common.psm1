@@ -193,7 +193,7 @@ function ConvertTo-LimitedText {
     }
 
     if ($FailWhenTooLong) {
-        throw "$FieldName überschreitet die maximale Länge $MaxLength: '$text'"
+        throw "$FieldName überschreitet die maximale Länge ${MaxLength}: '$text'"
     }
 
     return $text.Substring(0,$MaxLength)
@@ -692,11 +692,11 @@ function Get-IfSinglePrice {
     $discount = ConvertTo-DecimalValue $discountText "discount Position $PositionNumber" -AllowEmpty -DefaultValue 0
 
     if ($gross -lt 0 -and $net -lt 0) {
-        throw "Position $PositionNumber: mindestens gross_unit_price oder net_unit_price muss gefüllt sein."
+        throw "Position ${PositionNumber}: mindestens gross_unit_price oder net_unit_price muss gefüllt sein."
     }
 
     if ($discount -lt 0 -or $discount -gt 100) {
-        throw "Position $PositionNumber: discount muss zwischen 0 und 100 liegen."
+        throw "Position ${PositionNumber}: discount muss zwischen 0 und 100 liegen."
     }
 
     $allowDifferent = [bool](Get-ConfigValue $PricingConfig 'AllowDifferentGrossAndNet' $false)
@@ -704,11 +704,11 @@ function Get-IfSinglePrice {
     $preferred = ([string](Get-ConfigValue $PricingConfig 'PreferredPrice' 'Net')).Trim()
 
     if ($discount -ne 0 -and -not $allowDiscount) {
-        throw "Position $PositionNumber: discount=$discount kann nicht verlustfrei in die dokumentierten IFGP-Felder gemappt werden. Pricing.AllowNonZeroDiscount ist false."
+        throw "Position ${PositionNumber}: discount=$discount kann nicht verlustfrei in die dokumentierten IFGP-Felder gemappt werden. Pricing.AllowNonZeroDiscount ist false."
     }
 
     if ($gross -ge 0 -and $net -ge 0 -and $gross -ne $net -and -not $allowDifferent) {
-        throw "Position $PositionNumber: gross_unit_price=$gross und net_unit_price=$net unterscheiden sich. IFGP besitzt nur IFGPPREI. Pricing.AllowDifferentGrossAndNet ist false."
+        throw "Position ${PositionNumber}: gross_unit_price=$gross und net_unit_price=$net unterscheiden sich. IFGP besitzt nur IFGPPREI. Pricing.AllowDifferentGrossAndNet ist false."
     }
 
     $price = $null
@@ -724,7 +724,7 @@ function Get-IfSinglePrice {
     }
 
     if ($price -lt 0 -or $price -gt [decimal]99999999.999) {
-        throw "Position $PositionNumber: Einzelpreis überschreitet IFGPPREI NUMERIC(11,3)."
+        throw "Position ${PositionNumber}: Einzelpreis überschreitet IFGPPREI NUMERIC(11,3)."
     }
 
     return [math]::Round([decimal]$price,3,[System.MidpointRounding]::AwayFromZero)
@@ -873,13 +873,45 @@ function New-IfHeaderData {
     # Sie werden deshalb nur bei expliziter Freigabe gesetzt.
     $physical = Get-ConfigValue $InterfaceConfig 'PhysicalAuditFields' @{}
     if ([bool](Get-ConfigValue $physical 'Enabled' $false)) {
-        $data.Insert(0,'IFGKLOCK',ConvertTo-LimitedText (Get-ConfigValue $physical 'Lock' '') 1 'IFGKLOCK' -FailWhenTooLong)
-        $data.Insert(1,'IFGKJNAM',ConvertTo-LimitedText (Get-ConfigValue $physical 'JobName' 'APICAL') 10 'IFGKJNAM' -FailWhenTooLong)
-        $data.Insert(2,'IFGKJDAT',$RuntimeValues.Date)
-        $data.Insert(3,'IFGKJZEI',$RuntimeValues.Time)
-        $data.Insert(4,'IFGKUSER',ConvertTo-LimitedText (Get-ConfigValue $physical 'User' $RuntimeValues.CaptureUser) 10 'IFGKUSER' -FailWhenTooLong)
-        $data.Insert(5,'IFGKPROG',ConvertTo-LimitedText (Get-ConfigValue $physical 'Program' 'APICAL') 10 'IFGKPROG' -FailWhenTooLong)
-        $data.Insert(6,'IFGKBIBL',ConvertTo-LimitedText (Get-ConfigValue $physical 'Library' '') 10 'IFGKBIBL' -FailWhenTooLong)
+        # PowerShell 5.1: Funktionswerte zuerst berechnen und erst danach
+        # als Argument an OrderedDictionary.Insert() übergeben.
+        $physicalLock = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Lock' '') `
+            -MaxLength 1 `
+            -FieldName 'IFGKLOCK' `
+            -FailWhenTooLong
+
+        $physicalJobName = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'JobName' 'APICAL') `
+            -MaxLength 10 `
+            -FieldName 'IFGKJNAM' `
+            -FailWhenTooLong
+
+        $physicalUser = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'User' $RuntimeValues.CaptureUser) `
+            -MaxLength 10 `
+            -FieldName 'IFGKUSER' `
+            -FailWhenTooLong
+
+        $physicalProgram = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Program' 'APICAL') `
+            -MaxLength 10 `
+            -FieldName 'IFGKPROG' `
+            -FailWhenTooLong
+
+        $physicalLibrary = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Library' '') `
+            -MaxLength 10 `
+            -FieldName 'IFGKBIBL' `
+            -FailWhenTooLong
+
+        $data.Insert(0, 'IFGKLOCK', $physicalLock)
+        $data.Insert(1, 'IFGKJNAM', $physicalJobName)
+        $data.Insert(2, 'IFGKJDAT', $RuntimeValues.Date)
+        $data.Insert(3, 'IFGKJZEI', $RuntimeValues.Time)
+        $data.Insert(4, 'IFGKUSER', $physicalUser)
+        $data.Insert(5, 'IFGKPROG', $physicalProgram)
+        $data.Insert(6, 'IFGKBIBL', $physicalLibrary)
     }
 
     $allHeaderFields = @(
@@ -995,13 +1027,44 @@ function New-IfPositionData {
 
     $physical = Get-ConfigValue $InterfaceConfig 'PhysicalAuditFields' @{}
     if ([bool](Get-ConfigValue $physical 'Enabled' $false)) {
-        $data.Insert(0,'IFGPLOCK',ConvertTo-LimitedText (Get-ConfigValue $physical 'Lock' '') 1 'IFGPLOCK' -FailWhenTooLong)
-        $data.Insert(1,'IFGPJNAM',ConvertTo-LimitedText (Get-ConfigValue $physical 'JobName' 'APICAL') 10 'IFGPJNAM' -FailWhenTooLong)
-        $data.Insert(2,'IFGPJDAT',$RuntimeValues.Date)
-        $data.Insert(3,'IFGPJZEI',$RuntimeValues.Time)
-        $data.Insert(4,'IFGPUSER',ConvertTo-LimitedText (Get-ConfigValue $physical 'User' $RuntimeValues.CaptureUser) 10 'IFGPUSER' -FailWhenTooLong)
-        $data.Insert(5,'IFGPPROG',ConvertTo-LimitedText (Get-ConfigValue $physical 'Program' 'APICAL') 10 'IFGPPROG' -FailWhenTooLong)
-        $data.Insert(6,'IFGPBIBL',ConvertTo-LimitedText (Get-ConfigValue $physical 'Library' '') 10 'IFGPBIBL' -FailWhenTooLong)
+        # PowerShell 5.1: Funktionswerte zuerst berechnen.
+        $physicalLock = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Lock' '') `
+            -MaxLength 1 `
+            -FieldName 'IFGPLOCK' `
+            -FailWhenTooLong
+
+        $physicalJobName = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'JobName' 'APICAL') `
+            -MaxLength 10 `
+            -FieldName 'IFGPJNAM' `
+            -FailWhenTooLong
+
+        $physicalUser = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'User' $RuntimeValues.CaptureUser) `
+            -MaxLength 10 `
+            -FieldName 'IFGPUSER' `
+            -FailWhenTooLong
+
+        $physicalProgram = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Program' 'APICAL') `
+            -MaxLength 10 `
+            -FieldName 'IFGPPROG' `
+            -FailWhenTooLong
+
+        $physicalLibrary = ConvertTo-LimitedText `
+            -Value (Get-ConfigValue $physical 'Library' '') `
+            -MaxLength 10 `
+            -FieldName 'IFGPBIBL' `
+            -FailWhenTooLong
+
+        $data.Insert(0, 'IFGPLOCK', $physicalLock)
+        $data.Insert(1, 'IFGPJNAM', $physicalJobName)
+        $data.Insert(2, 'IFGPJDAT', $RuntimeValues.Date)
+        $data.Insert(3, 'IFGPJZEI', $RuntimeValues.Time)
+        $data.Insert(4, 'IFGPUSER', $physicalUser)
+        $data.Insert(5, 'IFGPPROG', $physicalProgram)
+        $data.Insert(6, 'IFGPBIBL', $physicalLibrary)
     }
 
     $allPositionFields = @(
@@ -1524,7 +1587,7 @@ function Send-IfQuoteCsv {
                 Positions = $groupRows.Count
                 Error = $_.Exception.Message
             })
-            Write-IfLog "Fehler bei quote_unique_id=$externalId: $($_.Exception.Message)" ERROR $LogPath
+            Write-IfLog "Fehler bei quote_unique_id=${externalId}: $($_.Exception.Message)" ERROR $LogPath
         }
     }
 

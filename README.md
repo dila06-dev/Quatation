@@ -2,6 +2,19 @@
 
 Komplett neues PowerShell-5.1-Projekt für den Trend-IF-Briefkasten.
 
+
+## 0.1 PowerShell-5.1-Korrektur in Version 1.1
+
+Version 1.1 korrigiert Parserstellen, die unter Windows PowerShell 5.1 strenger
+behandelt werden:
+
+- Variablen unmittelbar vor `:` werden als `${Variable}` geschrieben.
+- Funktionsaufrufe innerhalb von `.Insert(...)` werden zunächst in Variablen
+  ausgewertet und danach an die Methode übergeben.
+- `Test-Configuration.ps1` arbeitet mit `Set-StrictMode` und
+  `$ErrorActionPreference = 'Stop'`, damit ein fehlerhafter Modulimport nicht
+  mehr mit einer irreführenden Erfolgsmeldung weiterläuft.
+
 ## 1. Wichtigste Änderung
 
 Dieses Projekt schreibt **nicht direkt nach AGKO/AGPO**.

@@ -43,7 +43,7 @@
         # ZWINGEND setzen:
         # IF-Firmen-Nr. aus der Trend-Interface-Konfiguration / USIF.
         # Kombination IFGKIFFI + IFGKIFNR muss eindeutig sein.
-        InterfaceCompany = '01'
+        InterfaceCompany = '00036'
 
         # quote_unique_id wird direkt als IFGKIFNR / IFGPIFNR verwendet.
         CustomerNumberMinimumLength = 6

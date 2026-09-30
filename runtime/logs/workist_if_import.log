@@ -4,3 +4,125 @@ RUN START: 2026-09-29 16:23:54
 [2026-09-29 16:23:54] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
 [2026-09-29 16:23:54] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
 [2026-09-29 16:23:54] [INFO] Keine CSV-Dateien gefunden.
+====================================================================================================
+RUN START: 2026-09-29 16:27:17
+====================================================================================================
+[2026-09-29 16:27:17] [INFO] Gesamtprozess startet. Execute=False, DryRun=True, SkipSftp=False
+[2026-09-29 16:27:17] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-29 16:27:17] [INFO] ====================================================================================================
+[2026-09-29 16:27:17] [INFO] Datei startet: D:\Quotation\runtime\incoming\sample-quotes.csv
+[2026-09-29 16:27:17] [INFO] IF-CSV-Import startet: D:\Quotation\runtime\incoming\sample-quotes.csv | Header=TVPFTEST.IFGK | Position=TVPFTEST.IFGP | Api.TestMode=True | DryRun=True
+[2026-09-29 16:27:17] [INFO] ------------------------------------------------------------------------------------------
+[2026-09-29 16:27:17] [INFO] Verarbeite quote_unique_id=63a6c522, Positionen=1
+[2026-09-29 16:27:18] [WARN] field_sales_id 'TEST' passt nicht in IFGKSABE CHAR(3). Default 'TIK' wird verwendet.
+[2026-09-29 16:27:18] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGK_63a6c522.json
+[2026-09-29 16:27:18] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGP_63a6c522_0001.json
+[2026-09-29 16:27:18] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Simulation=0, Fehler=0, CanArchive=False
+[2026-09-29 16:27:18] [INFO] DRY-RUN erfolgreich. Datei bleibt im Incoming: sample-quotes.csv
+[2026-09-29 16:27:18] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-09-29 16:29:15
+====================================================================================================
+[2026-09-29 16:29:15] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False
+[2026-09-29 16:29:15] [WARN] Schreibziel: Header=TVPFTEST.IFGK, Position=TVPFTEST.IFGP, AllowProductionTables=False
+[2026-09-29 16:29:15] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-29 16:29:15] [INFO] ====================================================================================================
+[2026-09-29 16:29:15] [INFO] Datei startet: D:\Quotation\runtime\incoming\sample-quotes.csv
+[2026-09-29 16:29:16] [INFO] IF-CSV-Import startet: D:\Quotation\runtime\incoming\sample-quotes.csv | Header=TVPFTEST.IFGK | Position=TVPFTEST.IFGP | Api.TestMode=True | DryRun=False
+[2026-09-29 16:29:16] [WARN] ODBC-Verifikation ist deaktiviert. Duplikat- und Nachkontrolle erfolgt nur über DB-Schlüssel/API-Fehler. Für Scheduler-Betrieb wird Verification.Mode=Odbc empfohlen.
+[2026-09-29 16:29:16] [INFO] ------------------------------------------------------------------------------------------
+[2026-09-29 16:29:16] [INFO] Verarbeite quote_unique_id=63a6c522, Positionen=1
+[2026-09-29 16:29:16] [WARN] field_sales_id 'TEST' passt nicht in IFGKSABE CHAR(3). Default 'TIK' wird verwendet.
+[2026-09-29 16:29:16] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGK_63a6c522.json
+[2026-09-29 16:29:16] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGP_63a6c522_0001.json
+[2026-09-29 16:29:16] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGK INSERT 63a6c522 | DryRun=False
+[2026-09-29 16:29:16] [ERROR] API-Fehler bei 'IFGK INSERT 63a6c522': The remote server returned an error: (400) Bad Request. | API-Antwort: 
+
+
+
+{"STATUS":"ERROR","MESSAGE":"Not allowed to use this table name"}
+[2026-09-29 16:29:16] [ERROR] Fehler bei quote_unique_id=63a6c522: IFGK-Insert fehlgeschlagen: The remote server returned an error: (400) Bad Request. | API-Antwort: 
+
+
+
+{"STATUS":"ERROR","MESSAGE":"Not allowed to use this table name"}
+[2026-09-29 16:29:16] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Simulation=0, Fehler=1, CanArchive=False
+[2026-09-29 16:29:16] [ERROR] Datei fehlgeschlagen und bleibt im Incoming: D:\Quotation\runtime\incoming\sample-quotes.csv. Ursache: Mindestens eine IF-Gruppe ist fehlgeschlagen: 1
+[2026-09-29 16:29:16] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=0, Fehlerhafte Dateien=1
+====================================================================================================
+RUN START: 2026-09-29 16:31:47
+====================================================================================================
+[2026-09-29 16:31:47] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False
+[2026-09-29 16:31:47] [WARN] Schreibziel: Header=TVPFTEST.IFGK, Position=TVPFTEST.IFGP, AllowProductionTables=False
+[2026-09-29 16:31:47] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-29 16:31:47] [INFO] ====================================================================================================
+[2026-09-29 16:31:47] [INFO] Datei startet: D:\Quotation\runtime\incoming\sample-quotes.csv
+[2026-09-29 16:31:47] [INFO] IF-CSV-Import startet: D:\Quotation\runtime\incoming\sample-quotes.csv | Header=TVPFTEST.IFGK | Position=TVPFTEST.IFGP | Api.TestMode=True | DryRun=False
+[2026-09-29 16:31:47] [WARN] ODBC-Verifikation ist deaktiviert. Duplikat- und Nachkontrolle erfolgt nur über DB-Schlüssel/API-Fehler. Für Scheduler-Betrieb wird Verification.Mode=Odbc empfohlen.
+[2026-09-29 16:31:47] [INFO] ------------------------------------------------------------------------------------------
+[2026-09-29 16:31:47] [INFO] Verarbeite quote_unique_id=63a6c522, Positionen=1
+[2026-09-29 16:31:47] [WARN] field_sales_id 'TEST' passt nicht in IFGKSABE CHAR(3). Default 'TIK' wird verwendet.
+[2026-09-29 16:31:47] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGK_63a6c522.json
+[2026-09-29 16:31:47] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGP_63a6c522_0001.json
+[2026-09-29 16:31:47] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGK INSERT 63a6c522 | DryRun=False
+[2026-09-29 16:31:48] [DEBUG] API-Antwort bei 'IFGK INSERT 63a6c522': {"STATUS":"OK","MESSAGE":"Test mode active, nothing inserted.","SQL":"INSERT INTO TVPFTEST.IFGK (IFGKTSTP, IFGKIFFI, IFGKIFNR, IFGKERUS, IFGKERDA, IFGKEZEI, IFGKFIRM, IFGKAGJJ, IFGKAGNR, IFGKAGAR, IFGKFENR, IFGKFFLD, IFGKUEDA, IFGKUEUZ, IFGKIFST, IFGKIFKO, IFGKIFPO, IFGKFR01, IFGKKDNR, IFGKVSNR, IFGKSABE, IFGKWKNR, IFGKABTL, IFGKABAR, IFGKWACD, IFGKGADA, IFGKGBDA, IFGKAGDA, IFGKARF1, IFGKARF2, IFGKVSBD, IFGKLIBD, IFGKZABD, IFGKVPEI, IFGKAAGR, IFGKPJNR, IFGKPSLI, IFGKLFTG, IFGKLVZA, IFGKSPCD, IFGKWVDA, IFGKKOND, IFGKFREI) VALUES (\u00272026-09-29-16.31.47.687568\u0027, \u002701\u0027, \u002763a6c522\u0027, \u0027DILA\u0027, 20260929, 163147, \u002701\u0027, 0, \u0027\u0027, 150, \u0027\u0027, \u0027\u0027, 0, 0, \u002700\u0027, \u002700\u0027, \u002700\u0027, \u0027\u0027, 255521, \u0027\u0027, \u0027TIK\u0027, \u0027001\u0027, \u0027VK\u0027, \u0027D\u0027, \u0027EUR\u0027, 20260706, 20260710, 20260708, \u0027WVO-gyEmRyn7\u0027, \u0027\u0027, 220, \u0027060\u0027, \u0027012\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, 0, \u0027\u0027, \u0027D\u0027, 0, \u0027J\u0027, \u0027\u0027)","Data":{"IFGKTSTP":"2026-09-29-16.31.47.687568","IFGKIFFI":"01","IFGKIFNR":"63a6c522","IFGKERUS":"DILA","IFGKERDA":20260929,"IFGKEZEI":163147,"IFGKFIRM":"01","IFGKAGJJ":0,"IFGKAGNR":"","IFGKAGAR":"150","IFGKFENR":"","IFGKFFLD":"","IFGKUEDA":0,"IFGKUEUZ":0,"IFGKIFST":"00","IFGKIFKO":"00","IFGKIFPO":"00","IFGKFR01":"","IFGKKDNR":"255521","IFGKVSNR":"","IFGKSABE":"TIK","IFGKWKNR":"001","IFGKABTL":"VK","IFGKABAR":"D","IFGKWACD":"EUR","IFGKGADA":20260706,"IFGKGBDA":20260710,"IFGKAGDA":20260708,"IFGKARF1":"WVO-gyEmRyn7","IFGKARF2":"","IFGKVSBD":"220","IFGKLIBD":"060","IFGKZABD":"012","IFGKVPEI":"","IFGKAAGR":"","IFGKPJNR":"","IFGKPSLI":"","IFGKLFTG":0,"IFGKLVZA":"","IFGKSPCD":"D","IFGKWVDA":0,"IFGKKOND":"J","IFGKFREI":""}}
+[2026-09-29 16:31:48] [WARN] IFGK wurde von der API nur simuliert. Api.TestMode=True.
+[2026-09-29 16:31:48] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGP INSERT 63a6c522 Pos=1 | DryRun=False
+[2026-09-29 16:31:48] [DEBUG] API-Antwort bei 'IFGP INSERT 63a6c522 Pos=1': {"STATUS":"OK","MESSAGE":"Test mode active, nothing inserted.","SQL":"INSERT INTO TVPFTEST.IFGP (IFGPIFGK, IFGPIFGP, IFGPTSTP, IFGPIFFI, IFGPIFNR, IFGPERUS, IFGPERDA, IFGPEZEI, IFGPFIRM, IFGPAGJJ, IFGPAGNR, IFGPAGPO, IFGPFENR, IFGPFFLD, IFGPPA03, IFGPPA04, IFGPPA05, IFGPPA06, IFGPPA07, IFGPUEDA, IFGPUEUZ, IFGPIFST, IFGPIFPO, IFGPFR01, IFGPTENR, IFGPTEKZ, IFGPTBZ1, IFGPTBZ2, IFGPMENG, IFGPMEIN, IFGPPRAR, IFGPPREI, IFGPPDIM, IFGPFREI) VALUES (\u00272026-09-29-16.31.47.687568\u0027, 1, \u00272026-09-29-16.31.47.718752\u0027, \u002701\u0027, \u002763a6c522\u0027, \u0027DILA\u0027, 20260929, 163147, \u002701\u0027, 0, \u0027\u0027, 0, \u0027\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, \u0027\u0027, 0, 0, 10, 10, \u0027\u0027, 4450017346, 0, \u0027\u0027, \u0027\u0027, 3, \u0027\u0027, \u0027AKD\u0027, 203.01, 1, \u0027\u0027)","Data":{"IFGPIFGK":"2026-09-29-16.31.47.687568","IFGPIFGP":1,"IFGPTSTP":"2026-09-29-16.31.47.718752","IFGPIFFI":"01","IFGPIFNR":"63a6c522","IFGPERUS":"DILA","IFGPERDA":20260929,"IFGPEZEI":163147,"IFGPFIRM":"01","IFGPAGJJ":0,"IFGPAGNR":"","IFGPAGPO":0,"IFGPFENR":"","IFGPFFLD":"","IFGPPA03":"","IFGPPA04":"","IFGPPA05":"","IFGPPA06":"","IFGPPA07":"","IFGPUEDA":0,"IFGPUEUZ":0,"IFGPIFST":"10","IFGPIFPO":"10","IFGPFR01":"","IFGPTENR":"4450017346","IFGPTEKZ":"0","IFGPTBZ1":"","IFGPTBZ2":"","IFGPMENG":3,"IFGPMEIN":"","IFGPPRAR":"AKD","IFGPPREI":203.01,"IFGPPDIM":"1","IFGPFREI":""}}
+[2026-09-29 16:31:48] [WARN] API-Testmodus: 63a6c522 wurde nicht als persistierter Import gewertet.
+[2026-09-29 16:31:48] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=0, Übersprungen=0, Simulation=1, Fehler=0, CanArchive=False
+[2026-09-29 16:31:48] [WARN] Datei wurde nicht archiviert, weil kein vollständig persistierter Echtlauf bestätigt ist. Simulation=1.
+[2026-09-29 16:31:48] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-09-29 16:52:05
+====================================================================================================
+[2026-09-29 16:52:05] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False
+[2026-09-29 16:52:05] [WARN] Schreibziel: Header=TVPFTEST.IFGK, Position=TVPFTEST.IFGP, AllowProductionTables=False
+[2026-09-29 16:52:05] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-29 16:52:05] [INFO] ====================================================================================================
+[2026-09-29 16:52:05] [INFO] Datei startet: D:\Quotation\runtime\incoming\sample-quotes.csv
+[2026-09-29 16:52:05] [INFO] IF-CSV-Import startet: D:\Quotation\runtime\incoming\sample-quotes.csv | Header=TVPFTEST.IFGK | Position=TVPFTEST.IFGP | Api.TestMode=False | DryRun=False
+[2026-09-29 16:52:05] [WARN] ODBC-Verifikation ist deaktiviert. Duplikat- und Nachkontrolle erfolgt nur über DB-Schlüssel/API-Fehler. Für Scheduler-Betrieb wird Verification.Mode=Odbc empfohlen.
+[2026-09-29 16:52:05] [INFO] ------------------------------------------------------------------------------------------
+[2026-09-29 16:52:05] [INFO] Verarbeite quote_unique_id=63a6c522, Positionen=1
+[2026-09-29 16:52:05] [WARN] field_sales_id 'TEST' passt nicht in IFGKSABE CHAR(3). Default 'TIK' wird verwendet.
+[2026-09-29 16:52:05] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGK_63a6c522.json
+[2026-09-29 16:52:05] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGP_63a6c522_0001.json
+[2026-09-29 16:52:05] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGK INSERT 63a6c522 | DryRun=False
+[2026-09-29 16:52:06] [DEBUG] API-Antwort bei 'IFGK INSERT 63a6c522': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-29 16:52:06] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGP INSERT 63a6c522 Pos=1 | DryRun=False
+[2026-09-29 16:52:06] [DEBUG] API-Antwort bei 'IFGP INSERT 63a6c522 Pos=1': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-29 16:52:06] [INFO] IF-Briefkasten erfolgreich befüllt: IF-Nr=63a6c522, Positionen=1.
+[2026-09-29 16:52:06] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Simulation=0, Fehler=0, CanArchive=True
+[2026-09-29 16:52:06] [INFO] Datei archiviert: D:\Quotation\runtime\archive\sample-quotes_20260929_165206.csv
+[2026-09-29 16:52:06] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
+====================================================================================================
+RUN START: 2026-09-30 09:17:17
+====================================================================================================
+[2026-09-30 09:17:17] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False
+[2026-09-30 09:17:17] [WARN] Schreibziel: Header=TVPFTEST.IFGK, Position=TVPFTEST.IFGP, AllowProductionTables=False
+[2026-09-30 09:17:17] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-30 09:17:17] [INFO] Keine CSV-Dateien gefunden.
+====================================================================================================
+RUN START: 2026-09-30 09:18:56
+====================================================================================================
+[2026-09-30 09:18:56] [INFO] Gesamtprozess startet. Execute=True, DryRun=False, SkipSftp=False
+[2026-09-30 09:18:56] [WARN] Schreibziel: Header=TVPFTEST.IFGK, Position=TVPFTEST.IFGP, AllowProductionTables=False
+[2026-09-30 09:18:56] [INFO] SFTP ist deaktiviert. Es werden lokale CSV-Dateien verarbeitet.
+[2026-09-30 09:18:56] [INFO] ====================================================================================================
+[2026-09-30 09:18:56] [INFO] Datei startet: D:\Quotation\runtime\incoming\sample-quotes.csv
+[2026-09-30 09:18:56] [INFO] IF-CSV-Import startet: D:\Quotation\runtime\incoming\sample-quotes.csv | Header=TVPFTEST.IFGK | Position=TVPFTEST.IFGP | Api.TestMode=False | DryRun=False
+[2026-09-30 09:18:56] [WARN] ODBC-Verifikation ist deaktiviert. Duplikat- und Nachkontrolle erfolgt nur über DB-Schlüssel/API-Fehler. Für Scheduler-Betrieb wird Verification.Mode=Odbc empfohlen.
+[2026-09-30 09:18:56] [INFO] ------------------------------------------------------------------------------------------
+[2026-09-30 09:18:56] [INFO] Verarbeite quote_unique_id=63a6c022, Positionen=1
+[2026-09-30 09:18:56] [WARN] field_sales_id 'TEST' passt nicht in IFGKSABE CHAR(3). Default 'TIK' wird verwendet.
+[2026-09-30 09:18:56] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGK_63a6c022.json
+[2026-09-30 09:18:56] [DEBUG] JSON-Dump: D:\Quotation\runtime\request-dumps\IFGP_63a6c022_0001.json
+[2026-09-30 09:18:56] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGK INSERT 63a6c022 | DryRun=False
+[2026-09-30 09:18:57] [DEBUG] API-Antwort bei 'IFGK INSERT 63a6c022': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-30 09:18:57] [DEBUG] API POST http://localhost:8085/api/ibmi/s105dd7a/add | IFGP INSERT 63a6c022 Pos=1 | DryRun=False
+[2026-09-30 09:18:58] [DEBUG] API-Antwort bei 'IFGP INSERT 63a6c022 Pos=1': {"STATUS":"OK","MESSAGE":"Record(s) inserted"}
+[2026-09-30 09:18:58] [INFO] IF-Briefkasten erfolgreich befüllt: IF-Nr=63a6c022, Positionen=1.
+[2026-09-30 09:18:58] [INFO] CSV-Abschluss: Gruppen=1, Erfolgreich=1, Übersprungen=0, Simulation=0, Fehler=0, CanArchive=True
+[2026-09-30 09:18:58] [INFO] Datei archiviert: D:\Quotation\runtime\archive\sample-quotes_20260930_091858.csv
+[2026-09-30 09:18:58] [INFO] Gesamtprozess beendet. Erfolgreiche Dateien=1, Fehlerhafte Dateien=0
